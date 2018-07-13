@@ -1,0 +1,107 @@
+div.roundcol{
+    position: fixed;
+    display: felx;
+    justify-content: center;
+
+    margin-top:23px;
+    margin-left: 650px;
+
+    width: 20%;
+    color:  #f5cb0d;
+    letter-spacing: -2pt;
+    font-weight: bold;
+    font-size:18pt;
+    text-shadow: 1ch;
+}
+
+
+
+div.leftPlayer1{
+    position: fixed;
+    text-align: left;
+
+    margin-left: 1525px;
+    margin-top: 465px;
+    font-size: 22pt;
+}
+
+div.leftPlayer2{
+    position: fixed;
+    text-align: left;
+   
+    
+    margin-left: 1545px;
+    margin-top: 520px;
+    font-size: 22pt;
+}
+
+div.rightPlayer1{
+    position: fixed;
+    text-align: left;
+
+    margin-left: 1545px;
+    margin-top: 585px;
+    font-size: 22pt;
+}
+
+div.rightPlayer2{
+    position: fixed;
+    text-align: left;
+
+    margin-left: 1525px;
+    margin-top: 642px;
+    font-size: 22pt;
+}
+
+div.rightScore{
+    position: fixed;
+    
+    margin-left: 1835px;
+    margin-top:590px;
+}
+
+div.leftScore{
+    position: fixed;
+    margin-left: 1835px;
+    margin-top:463px;
+}
+
+div.score{
+    font-size: 55pt;
+    font-weight: 100;
+}
+
+div.rightCharacter{
+    position: fixed;
+}
+
+
+div.leftCharacter{
+    position: fixed;
+}
+
+
+div.leftPort{
+    position: fixed;
+}
+
+div.rightPort{
+    position:fixed;
+}
+
+
+div.leftPort1{
+    position: fixed;
+}
+
+div.leftPort2{
+    position: fixed;
+}
+
+div.rightPort1{
+    position: fixed;
+}
+
+div.rightPort2{
+    position: fixed;
+}

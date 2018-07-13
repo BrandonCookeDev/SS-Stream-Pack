@@ -1,0 +1,36 @@
+div.left{
+    float:left;
+    width:50%;
+    height:100%;
+    /* background-color: red; */
+}
+
+div.right{
+    float:left;
+    width: 50%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+video.character{
+    
+}
+
+video.left{
+    z-index: 0;
+    left:0;
+    margin-left:-500px;
+}
+
+video.right{
+    z-index: 1;
+    left:0;
+    margin-left: -500px;
+}
+
+video.reverse
+{
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}

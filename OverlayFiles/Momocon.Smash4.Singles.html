@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/Momocon.Smash4.Singles.css" />
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <div class="leftPlayer">
+      <div class="skewed-rev">
+        <transition name="fade" mode="out-in">
+          <span class="name " :key="info.p1_name_s4" v-html="info.p1_name_s4"></span>
+        </transition>
+      </div>
+    </div>
+
+    <div class="leftCharacter">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="info.p1_char_s4">
+          <img class="character_icon" :src="char_1_img_s4" onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <div class="leftPort">
+        <transition name="fade" mode="out-in">
+            <span class="" :key="info.p1_port_color_s4">
+              <img class='portIcon' :src="p1_port_img_s4" onerror='this.style.display = "none"' / >
+            </span>
+        </transition>
+      </div>
+
+    <div class="leftScore skewed-rev score">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p1_games_s4" v-html="info.p1_games_s4"></span>
+      </transition>
+    </div>
+
+
+    <div class='round'>
+      <div class="skewed-rev ">
+        <transition name="fade" mode="out-in">
+          <span class="round" :key="info.event_round" v-html="info.event_round"></span>
+        </transition>
+      </div>
+    </div>
+
+    <div class="tournament-section skewed">
+      <transition name="fade" mode="out-in">
+        <span :key="info.event_name" v-html="info.event_name"></span>
+      </transaction>
+    </div>
+
+
+    <div class="rightPlayer">
+      <div class="skewed">
+        <transition name="fade" mode="out-in">
+          <span class="name" :key="info.p2_name_s4" v-html="info.p2_name_s4" ></span>
+        </transition>
+      </div>
+    </div>
+
+    <div class="rightPort">
+        <transition name="fade" mode="out-in">
+            <span class="char" :key="info.p2_port_color_s4">
+              <img class='portIcon reverse' :src="p2_port_img_s4" onerror='this.style.display = "none"' / >
+            </span>
+        </transition>
+      </div>
+
+    <div class="rightScore score skewed">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p2_games_s4" v-html="info.p2_games_s4"></span>
+      </transition>
+    </div>
+
+    <div class="rightCharacter">
+      <transition name="fade" mode="out-in">
+        <span class="char" :key="info.p2_char_s4">
+          <img class="character_icon reverse" :src="char_2_img_s4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+  </div>
+</body>
+
+<!-- This needs to be loaded after the dom -->
+<script src="../resources/js/vue-main.minimal.js"></script>
+
+</html>

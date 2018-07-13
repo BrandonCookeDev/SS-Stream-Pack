@@ -1,0 +1,25 @@
+{
+  "name": "newmelee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonCookeDev/SS-Stream-Pack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonCookeDev/SS-Stream-Pack/issues"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "bootstrap": "^3.3.7",
+    "react-seed": "0.0.16",
+    "vue": "^2.3.2",
+    "vue2-animate": "^1.0.4"
+  }
+}

@@ -1,0 +1,94 @@
+div.playercol{
+    position:fixed;
+
+    width: 13%;
+}
+
+
+div.roundcol{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+
+    margin-top:24px;
+    margin-left: 769px;
+
+    width: 20%;
+    color:  #f5cb0d;
+    letter-spacing: -2pt;
+    font-weight: bold;
+    font-size:18pt;
+    text-shadow: 1ch;
+}
+
+div.leftPort{
+    position:fixed;
+    margin-left: 600px;
+    margin-top: 1015px;
+
+}
+
+
+div.rightPort{
+    position:fixed;
+    margin-top:1015px;
+    margin-left:1182px;
+}
+
+div.leftPlayer{
+    position: fixed;
+    margin-left: 402px;
+    margin-top: 1027px;
+    justify-content: left;
+    z-index: -2;
+}
+
+div.rightPlayer{
+    position: fixed;
+    margin-left: 1265px;
+    margin-top: 1025px;
+    text-align: right;
+    z-index: -2;
+}
+
+div.leftScore{
+    position: fixed;
+    margin-left: 755px;
+    margin-top: 1015px;
+    justify-content: left;
+}
+
+div.rightScore{
+    position: fixed;
+    margin-left: 1135px;
+    margin-top: 1015px;
+    justify-content: right;
+}
+
+div.leftCharacter{
+    position: fixed;
+    margin-top:1016px;
+    margin-left:600px;
+    z-index: 0;
+}
+
+div.rightCharacter{
+    position: fixed;
+    margin-top:1015px;
+    margin-left:1200px;
+    z-index: 0;
+}
+
+div.score{
+    font-size: 32pt;
+    font-weight: 100;
+}
+
+img.portIcon{
+    z-index: -2;
+}
+
+img.characterIcon{
+
+    z-index: 0;
+}

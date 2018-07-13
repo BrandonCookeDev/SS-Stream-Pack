@@ -1,0 +1,121 @@
+div.playercol{
+position:fixed;
+width: 13%;
+}
+
+
+div.roundcol{
+position: fixed;
+display: flex;
+justify-content: center;
+
+}
+
+div.round{
+position: fixed;
+color: #f5cb0d;
+font-size: 16pt;
+text-align: right;
+width:25%;
+margin-left: 275px;
+margin-top: 97px;
+font-weight: 100;
+letter-spacing: -1pt;
+}
+
+div.tournament-section{
+position: fixed;
+color: #f5cb0d;
+font-size: 16pt;
+text-align: left;
+margin-left: 1165px;
+margin-top: 97px;
+font-weight: 100;
+}
+
+div.leftPlayer{
+position: fixed;
+margin-left: 325px;
+margin-top: 45px;
+justify-content: left;
+font-size: 18pt;
+z-index:5;
+}
+
+div.rightPlayer{
+position: fixed;
+margin-left: 1355px;
+margin-top: 45px;
+text-align: right;
+font-size: 18pt;
+width: 13%;
+z-index:5;
+}
+
+div.leftScore{
+position: fixed;
+margin-left: 773px;
+margin-top: 35px;
+text-align: left;
+}
+
+div.rightScore{
+position: fixed;
+margin-left: 1108px;
+margin-top: 35px;
+justify-content: right;
+}
+
+div.leftEyes{
+position:fixed;
+margin-top:35px;
+margin-left:485px;
+}
+
+div.rightEyes{
+position:fixed;
+margin-top:35px;
+margin-left:1310px;
+}
+
+img.eyes{
+height:51px;
+}
+
+div.leftCharacter{
+position: fixed;
+margin-top:35px;
+margin-left:630px;
+z-index:4;
+}
+
+div.rightCharacter{
+position: fixed;
+margin-top:35px;
+margin-left:1180px;
+z-index:4;
+}
+
+div.rightPort{
+position: fixed;
+margin-top:35px;
+margin-left:1164px;
+}
+
+div.leftPort{
+position:fixed;
+margin-top:35px;
+margin-left:633px;
+}
+
+img.portIcon{
+height:50px;
+}
+
+img.characterIcon{
+}
+
+div.score{
+font-size: 50pt;
+font-weight: 100;
+}
