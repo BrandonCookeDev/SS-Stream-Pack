@@ -6,7 +6,7 @@
   <title>Title</title>
   <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
   <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
-  <link rel="stylesheet" type="text/css" href="../resources/styles/Momocon.Head2Head.Smash4.Singles.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/head2head.Melee.Singles.css" />
 
   <script src="../node_modules/vue/dist/vue.js"></script>
   <script src="../node_modules/axios/dist/axios.js"></script>
@@ -18,31 +18,31 @@
     <div class="leftPlayer" style="z-index: 5">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
-          <span class="name " :key="info.p1_name_s4" v-html="info.p1_name_s4"></span>
+          <span class="name " :key="info.p1_name" v-html="info.p1_name"></span>
         </transition>
       </div>
     </div>
     
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
-          <span :key="info.p1_port_color_s4">
-              <img class="portIcon" :src="p1_port_img_s4" onerror='this.style.display = "none"'/>
+          <span :key="info.p1_port_color">
+              <img class="portIcon" :src="p1_port_img" onerror='this.style.display = "none"'/>
           </span>
         </transition>
       </div>
 
       <div class='leftCharacter' style="z-index: 4">
           <transition name="fade" mode="out-in">
-              <span :key="info.p1_char_s4">
-                  <img class="characterIcon" :src="char_1_img_s4" onerror='this.style.display = "none"'/>
+              <span :key="info.p1_char">
+                  <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
               </span>
             </transition>
           </div>
 
           <div class="rightCharacter" style="z-index: 4">
               <transition name="fade" mode="out-in">
-                <span class="rightCharacter char" :key="info.p2_char_s4">
-                  <img class="characterIcon reverse" :src="char_2_img_s4" onerror='this.style.display = "none"'/>
+                <span class="rightCharacter char" :key="info.p2_char">
+                  <img class="characterIcon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
                 </span>
               </transition>
             </div>
@@ -50,7 +50,7 @@
 
       <div class="leftScore skewed-rev score">
         <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p1_games_s4" v-html="info.p1_games_s4"></span>
+          <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
         </transition>
       </div>
 
@@ -65,21 +65,21 @@
     <div class="playercol rightPlayer " style="z-index: 5">
       <div class="skewed">
         <transition name="fade" mode="out-in">
-          <span class="name" :key="info.p2_name_s4" v-html="info.p2_name_s4" ></span>
+          <span class="name" :key="info.p2_name" v-html="info.p2_name" ></span>
         </transition>
       </div>
     </div>
 
       <div class="rightScore score skewed">
         <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p2_games_s4" v-html="info.p2_games_s4"></span>
+          <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
         </transition>
       </div>
 
       <div class="rightPort">
         <transition name="fade" mode="out-in">
-            <span :key="info.p2_port_color_s4">
-                <img class="portIcon reverse" :src="p2_port_img_s4" onerror='this.style.display = "none"'/>
+            <span :key="info.p2_port_color">
+                <img class="portIcon reverse" :src="p2_port_img" onerror='this.style.display = "none"'/>
             </span>
         </transition>
       </div>

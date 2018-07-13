@@ -6,7 +6,7 @@
   <title>Title</title>
   <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
   <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
-  <link rel="stylesheet" type="text/css" href="../resources/styles/Momocon.Melee.Singles.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/head2head.Melee.Singles.css" />
 
   <script src="../node_modules/vue/dist/vue.js"></script>
   <script src="../node_modules/axios/dist/axios.js"></script>
@@ -15,20 +15,12 @@
 <body>
   <div id="app">
 
-    <div class="leftPlayer">
+    <div class="leftPlayer" style="z-index: 5">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
           <span class="name " :key="info.p1_name" v-html="info.p1_name"></span>
         </transition>
       </div>
-    </div>
-
-    <div class="leftCharacter">
-      <transition name="fade" mode="out-in">
-        <span class="leftCharacter char" :key="info.p1_char">
-          <img class="character_icon" :src="char_1_img" onerror='this.style.display = "none"'/>
-        </span>
-      </transition>
     </div>
     
     <div class='leftPort'>
@@ -50,7 +42,7 @@
           <div class="rightCharacter" style="z-index: 4">
               <transition name="fade" mode="out-in">
                 <span class="rightCharacter char" :key="info.p2_char">
-                  <img class="character_icon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
+                  <img class="characterIcon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
                 </span>
               </transition>
             </div>
@@ -70,7 +62,7 @@
     </div>
 
 
-    <div class="playercol rightPlayer">
+    <div class="playercol rightPlayer " style="z-index: 5">
       <div class="skewed">
         <transition name="fade" mode="out-in">
           <span class="name" :key="info.p2_name" v-html="info.p2_name" ></span>

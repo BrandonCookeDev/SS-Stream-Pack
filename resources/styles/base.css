@@ -10,16 +10,12 @@
   opacity: 0;
 }
 
-.flag-mask {
-  -webkit-mask-box-image: url('../../resources/images/Masks/FlagMask.png');
-}
-
 .on-top{
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .on-bottom{
-  z-index: -1;
+  z-index: -5 !important;
 }
 
 img.reverse{

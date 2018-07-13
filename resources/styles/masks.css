@@ -1,0 +1,20 @@
+div.flag-mask-left{
+	-webkit-mask-image: url('../resources/images/masks/FlagMaskInverse.png');
+	mask: url('../resources/images/masks/FlagMaskInverse.png');
+}
+
+div.flag-mask-right{
+	-webkit-mask-image: url('../resources/images/masks/FlagMaskReverseInverse');
+	mask: url('../resources/images/masks/FlagMaskReverseInverse');
+}
+
+div.h2h-mask-left{
+	-webkit-mask-image: url('../resources/images/masks/H2HMaskLeft.png');
+	mask: url('../resources/images/masks/H2HMaskLeft.png')
+}
+
+div.h2h-mask-right{
+	-webkit-mask-image: url('../resources/images/masks/H2HMaskRight.png');
+	mask: url('../resources/images/masks/H2HMaskRight.png')
+}
+
