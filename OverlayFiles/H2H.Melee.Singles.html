@@ -25,27 +25,27 @@
     
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
-          <span :key="info.p1_port_color">
-              <img class="portIcon" :src="p1_port_img" onerror='this.style.display = "none"'/>
+        <span :key="info.p1_port_color">
+            <img class="portIcon" :src="p1_port_img" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+      <div class='leftCharacter' style="z-index: 4">
+        <transition name="fade" mode="out-in">
+          <span :key="info.p1_char">
+              <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
           </span>
         </transition>
       </div>
 
-      <div class='leftCharacter' style="z-index: 4">
-          <transition name="fade" mode="out-in">
-              <span :key="info.p1_char">
-                  <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
-              </span>
-            </transition>
-          </div>
-
-          <div class="rightCharacter" style="z-index: 4">
-              <transition name="fade" mode="out-in">
-                <span class="rightCharacter char" :key="info.p2_char">
-                  <img class="characterIcon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
-                </span>
-              </transition>
-            </div>
+      <div class="rightCharacter" style="z-index: 4">
+        <transition name="fade" mode="out-in">
+          <span class="rightCharacter char" :key="info.p2_char">
+            <img class="characterIcon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
+          </span>
+        </transition>
+      </div>
     
 
       <div class="leftScore skewed-rev score">
@@ -70,19 +70,19 @@
       </div>
     </div>
 
-      <div class="rightScore score skewed">
-        <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
-        </transition>
-      </div>
+    <div class="rightScore score skewed">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+      </transition>
+    </div>
 
-      <div class="rightPort">
-        <transition name="fade" mode="out-in">
-            <span :key="info.p2_port_color">
-                <img class="portIcon reverse" :src="p2_port_img" onerror='this.style.display = "none"'/>
-            </span>
-        </transition>
-      </div>
+    <div class="rightPort">
+      <transition name="fade" mode="out-in">
+          <span :key="info.p2_port_color">
+              <img class="portIcon reverse" :src="p2_port_img" onerror='this.style.display = "none"'/>
+          </span>
+      </transition>
+    </div>
 
   </div>
 </body>
