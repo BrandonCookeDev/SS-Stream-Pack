@@ -17,6 +17,18 @@
   <div id="app">
 
     <!-- LEFT -->
+    <div class="leftDisplay" style="z-index:3">
+      <div class="h2h-mask-left">
+          <transition name="fade" mode="out-in">
+            <span class="leftCharacter" :key="info.p2_char">
+                <video :src="'C:\\Users\\ASUS\\Dropbox\\Final WEBM\\' + info.p1_char + '.webm'"
+                    type="video/webm" autoplay loop class="character left"></video>
+            </span>
+            <img class="characterIcon" src="../resources/images/examples/Desert.jpg" style="right:0" height="100%"/>  
+          </transition>
+      </div>
+    </div>
+
     <div class="leftPlayer" style="z-index: 5">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
@@ -33,16 +45,28 @@
       </transition>
     </div>
 
-      <div class='leftCharacter h2h-mask-left' style="z-index: 4">
+      <div class='leftCharacter' style="z-index: 4">
         <transition name="fade" mode="out-in">
           <span :key="info.p1_char">
-              <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
+              
           </span>
         </transition>
       </div>
 
       <!-- RIGHT-->
-      <div class="rightCharacter h2h-mask-right" style="z-index: 4">
+      <div class="rightDisplay" style="z-index:3">
+        <div class="h2h-mask-right">
+            <transition name="fade" mode="out-in">
+              <span class="rightCharacter" :key="info.p2_char">
+                  <video :src="'C:\\Users\\ASUS\\Dropbox\\Final WEBM\\' + info.p2_char + '.webm'"
+                      type="video/webm" autoplay loop class="character right"></video>
+              </span>
+              <img class="characterIcon" src="../resources/images/examples//Chrysanthemum.jpg" style="right:0" height="100%"/>  
+            </transition>
+        </div>
+      </div>
+
+      <div class="rightCharacter" style="z-index: 4">
         <transition name="fade" mode="out-in">
           <span class="rightCharacter char" :key="info.p2_char">
             <img class="characterIcon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
