@@ -4,21 +4,31 @@ if(!tunnel)
     console.error('json-tunnel is required for vue-main. Please make sure you\'ve imported it');
 */
 
+function join(){
+  let s = '';
+  for(var i in arguments){
+    var arg = arguments[i];
+    s += arg + '/'
+  };
+  return s;
+}
+
 /** FILE SYSTEMS */
 const RESOURCES_DIR = '../resources'
-const IMAGES_DIR    = RESOURCES_DIR + '/images';
-const FONTS_DIR     = RESOURCES_DIR + '/fonts';
-const STYLES_DIR    = RESOURCES_DIR + '/styles';
-const VIDEOS_DIR    = RESOURCES_DIR + '/videos';
+const IMAGES_DIR    = join(RESOURCES_DIR, 'images');
+const FONTS_DIR     = join(RESOURCES_DIR, 'fonts');
+const STYLES_DIR    = join(RESOURCES_DIR, 'styles');
+const VIDEOS_DIR    = join(RESOURCES_DIR, 'videos');
 
 //These paths are relative to the Overlay file
 //const CHARACTER_DIR = '../../Overlays/Characters/'
-const CHARACTER_DIR = '../resources/images/Characters/'
-const PORT_DIR = '../../Overlays/Ports/';
-const FLAG_DIR = '../../Overlays/Flags/64flat/';
+const CHARACTER_DIR = join(IMAGES_DIR, 'Characters');
+const PORT_DIR = join(IMAGES_DIR, 'Ports');
+const OVERLAY_DIR = join(IMAGES_DIR, 'Overlays');
+const FLAG_DIR = join(IMAGES_DIR, 'Flags/64flat/');
+const MELEE_CHAR_DIR = join(CHARACTER_DIR, 'Melee');
+const SMASH4_CHAR_DIR = join(CHARACTER_DIR, 'Smash 4');
 const EYES_DIR = '../../CIlvanis Masks/Crops/'
-const MELEE_CHAR_DIR = CHARACTER_DIR; // + '/Melee/';
-const SMASH4_CHAR_DIR = CHARACTER_DIR + '/Smash 4/';
 
 var POLL_INTERVAL = 500;
 var ROUND_INTERVAL = 10000;
