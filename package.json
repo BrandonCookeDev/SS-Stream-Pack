@@ -1,7 +1,7 @@
 {
-  "name": "newmelee",
+  "name": "SS-Stream-Pack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Stream Pack for use by Smash Studios",
   "main": "index.js",
   "scripts": {
     "test": "node test/server.js"
@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/BrandonCookeDev/SS-Stream-Pack.git"
   },
-  "author": "",
+  "author": {
+    "name": "Brandon L Cooke",
+    "email": "cookie@recursion.gg"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BrandonCookeDev/SS-Stream-Pack/issues"
@@ -22,6 +25,7 @@
     "vue2-animate": "^1.0.4"
   },
   "devDependencies": {
+    "chalk": "^2.4.1",
     "express": "^4.16.3",
     "handlebars": "^4.0.11"
   }

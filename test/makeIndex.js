@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 	, path = require('path')
+	, chalk = require('chalk')
 	, handlebars = require('handlebars');
 
 const OVERLAY_DIR = path.join(__dirname, '../OverlayFiles');
@@ -14,7 +15,7 @@ module.exports = function(port){
 		let variables = {templates: templates, port: port};
 		let merged = handlebars.compile(template)(variables);
 		fs.writeFileSync(path.join(__dirname, 'index.html'), merged);
-		console.info('wrote index.html with content: \n%s\nVariables: %s', merged, JSON.stringify(variables));
+		console.info('wrote index.html with content: \n%s\nVariables: %s', chalk.grey(merged), chalk.blue(JSON.stringify(variables)));
 		return true;
 	} catch(e){
 		console.error(e);
