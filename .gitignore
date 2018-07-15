@@ -14,8 +14,6 @@ bower_components
 # Unless there's some relevant, I don't want all the garbage xsplit files.
 *.xml
 
-streamcontrol.json
-streamcontrol.xml
 players.csv
 
 # Logs

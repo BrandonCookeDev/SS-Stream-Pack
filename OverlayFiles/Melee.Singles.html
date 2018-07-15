@@ -132,6 +132,7 @@
       </div>
     </div>
 
+    <!-- LEFT CHARACTER -->
     <div class="leftCharacter">
       <transition name="fade" mode="out-in">
         <span class="leftCharacter char" :key="info.p1_char">
@@ -140,6 +141,7 @@
       </transition>
     </div>
     
+    <!-- LEFT PORT -->
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
         <span :key="info.p1_port_color">
@@ -148,14 +150,7 @@
       </transition>
     </div>
 
-    <div class='leftCharacter' style="z-index: 4">
-      <transition name="fade" mode="out-in">
-        <span :key="info.p1_char">
-            <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
-        </span>
-      </transition>
-    </div>
-
+    <!-- LEFT FLAG -->
     <div class="leftFlag flag-mask-left">
       <transition name="fade" mode="out-in">
         <span :key="info.p1_country">
@@ -164,42 +159,51 @@
       </transition>
     </div>
 
+    <!-- LEFT SCORE -->
     <div class="leftScore skewed-rev score">
       <transition name="fade" mode="out-in">
         <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
       </transition>
     </div>
 
+
+
     <!-- middle -->
-    <div class="roundcol">
-      <transition name="fade" mode="out-in">
-        <span class="round" :key="info.event_round" v-html="info.event_round"></span>
-      </transition>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="rightCharacter" style="z-index: 4">
-      <transition name="fade" mode="out-in">
-        <span class="rightCharacter char" :key="info.p2_char">
-          <img class="character_icon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
-        </span>
-      </transition>
-    </div>
-
-    <div class="playercol rightPlayer">
-      <div class="skewed">
+      <div class="roundcol">
         <transition name="fade" mode="out-in">
-          <span class="name" :key="info.p2_name" v-html="info.p2_name" ></span>
+          <span class="round" :key="info.event_round" v-html="info.event_round"></span>
         </transition>
       </div>
-    </div>
 
+
+
+    <!-- RIGHT -->
+    <div class="playercol rightPlayer">
+        <div class="skewed">
+          <transition name="fade" mode="out-in">
+            <span class="name" :key="info.p2_name" v-html="info.p2_name" ></span>
+          </transition>
+        </div>
+      </div>
+  
+
+    <!-- RIGHT CHARACTER -->
+    <div class="rightCharacter" style="z-index: 4">
+        <transition name="fade" mode="out-in">
+          <span class="rightCharacter char" :key="info.p2_char">
+            <img class="character_icon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
+          </span>
+        </transition>
+      </div>
+    
+      <!-- RIGHT SCORE -->
     <div class="rightScore score skewed">
       <transition name="fade" mode="out-in">
         <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
       </transition>
     </div>
 
+    <!-- RIGHT PORT -->
     <div class="rightPort">
       <transition name="fade" mode="out-in">
           <span :key="info.p2_port_color">
@@ -208,6 +212,7 @@
       </transition>
     </div>
 
+    <!-- RIGHT FLAG/SPONSOR -->
     <div class="rightFlag flag-mask-right">
       <transition name="fade" mode="out-in">
         <span :key="info.p2_country">
