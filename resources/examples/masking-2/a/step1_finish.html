@@ -43,12 +43,22 @@
     transform: translateX(60px);
   }
 
+  #RCSmasked-wrapper{
+    position:fixed;
+    margin-top: 800px;
+    margin-left: 500px;
+  }
+
   #RCSmasked{
     -webkit-mask: url(img/RCSmask.png);
     -webkit-mask-size: cover;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    position: absolute;
+    mask: url(img/RCSmask.png);
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    position: fixed;
     top: 0;
     left: 0;
     width: 10%;
@@ -93,12 +103,14 @@
 </head>
 <body>
   <header>
-      <div id="masked">
+      <div id="masked"> d
         <h1>Hello World</h1>
       </div>
       <div id="diamond">DETAILS HERE</div>
-      <div id="RCSmasked">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Man_o%27war_cove_near_lulworth_dorset_arp.jpg" height="500px"/>
+      <div id="RCSmasked-wrapper">
+        <div id="RCSmasked">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Man_o%27war_cove_near_lulworth_dorset_arp.jpg" height="500px"/>
+        </div>
       </div>
   </header>
   <script>

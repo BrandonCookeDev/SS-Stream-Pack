@@ -1,36 +1,52 @@
 div.flag-mask-left{
-	-webkit-mask: url('../resources/images/masks/FlagMaskInverse.png');
+	-webkit-mask: url('../resources/images/masks/FlagMask.png');
     -webkit-mask-size: cover;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    position: absolute;
-	mask-image: url('../resources/images/masks/FlagMaskInverse.png');
+    mask: url('../resources/images/masks/FlagMask.png');
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    position: fixed;
+	mask-image: url('../resources/images/masks/FlagMask.png');
 }
 
 div.flag-mask-right{
-	-webkit-mask: url('../resources/images/masks/FlagMaskReverseInverse');
+	-webkit-mask: url('../resources/images/masks/FlagMaskRev.png');
     -webkit-mask-size: cover;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    position: absolute;
-	mask-image: url('../resources/images/masks/FlagMaskReverseInverse');
+    mask: url('../resources/images/masks/FlagMaskRev.png');
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    position: fixed;
+	mask-image: url('../resources/images/masks/FlagMaskRev.png');
 }
 
 div.h2h-mask-left{
-	-webkit-mask: url('../resources/images/masks/H2HMaskLeft.png');
+	-webkit-mask: url('../resources/images/masks/h2h-mask-left.png');
     -webkit-mask-size: cover;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    position: absolute;
-	mask-image: url('../resources/images/masks/H2HMaskLeft.png')
+    mask: url('../resources/images/masks/h2h-mask-left.png');
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    position: fixed;
+	mask-image: url('../resources/images/masks/h2h-mask-left.png')
 }
 
 div.h2h-mask-right{
-	-webkit-mask: url('../resources/images/masks/H2HMaskRight.png');
+	-webkit-mask: url('../resources/images/masks/h2h-mask-right.png');
     -webkit-mask-size: cover;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    position: absolute;
-	mask-image: url('../resources/images/masks/H2HMaskRight.png')
+    mask: url('../resources/images/masks/h2h-mask-right.png');
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    position: fixed;
+	mask-image: url('../resources/images/masks/h2h-mask-right.png')
 }
 

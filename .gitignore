@@ -27,3 +27,5 @@ RoundResolver/SmashRoundResolver/node_modules
 
 ./*.xml
 ./OverlayFiles/*.xml
+
+test/index.html

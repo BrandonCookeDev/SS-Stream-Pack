@@ -4,17 +4,122 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
-  <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
-  <link rel="stylesheet" type="text/css" href="../resources/styles/melee.Singles.css" />
-
+  
   <script src="../node_modules/vue/dist/vue.js"></script>
   <script src="../node_modules/axios/dist/axios.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/masks.css" />
+  <!--<link rel="stylesheet" type="text/css" href="../resources/styles/melee.Singles.css" /> -->
+  
+  <style>
+  div.playercol{
+      position:fixed;
+      width: 13%;
+  }
+
+  div.roundcol{
+      position: fixed;
+      display: flex;
+      justify-content: center;
+
+      margin-top:24px;
+      margin-left: 769px;
+
+      width: 20%;
+      color:  #f5cb0d;
+      letter-spacing: -2pt;
+      font-weight: bold;
+      font-size:18pt;
+      text-shadow: 1ch;
+  }
+
+  div.leftPort{
+      position:fixed;
+      margin-left: 600px;
+      margin-top: 1015px;
+  }
+
+  div.rightPort{
+      position:fixed;
+      margin-top:1015px;
+      margin-left:1182px;
+  }
+
+  div.leftPlayer{
+      position: fixed;
+      margin-left: 402px;
+      margin-top: 1027px;
+      justify-content: left;
+      z-index: -2;
+  }
+
+  div.rightPlayer{
+      position: fixed;
+      margin-left: 1265px;
+      margin-top: 1025px;
+      text-align: right;
+      z-index: -2;
+  }
+
+  div.leftScore{
+      position: fixed;
+      margin-left: 755px;
+      margin-top: 1015px;
+      justify-content: left;
+  }
+
+  div.rightScore{
+      position: fixed;
+      margin-left: 1135px;
+      margin-top: 1015px;
+      justify-content: right;
+  }
+
+  div.leftCharacter{
+      position: fixed;
+      margin-top:1016px;
+      margin-left:600px;
+      z-index: 0;
+  }
+
+  div.leftFlag{
+    margin-top: 20px;
+  }
+
+  div.rightFlag{
+    margin-top: 20px;
+  }
+
+  div.rightCharacter{
+      position: fixed;
+      margin-top:1015px;
+      margin-left:1200px;
+      z-index: 0;
+  }
+
+  div.score{
+      font-size: 32pt;
+      font-weight: 100;
+  }
+
+  img.portIcon{
+      z-index: -2;
+  }
+
+  img.characterIcon{
+      z-index: 0;
+  }
+
+  </style>
+
 </head>
 
 <body>
   <div id="app">
 
+    <!-- LEFT -->
     <div class="leftPlayer">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
@@ -33,42 +138,49 @@
     
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
-          <span :key="info.p1_port_color">
-              <img class="portIcon" :src="p1_port_img" onerror='this.style.display = "none"'/>
-          </span>
-        </transition>
-      </div>
+        <span :key="info.p1_port_color">
+            <img class="portIcon" :src="p1_port_img" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
 
-      <div class='leftCharacter' style="z-index: 4">
-          <transition name="fade" mode="out-in">
-              <span :key="info.p1_char">
-                  <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
-              </span>
-            </transition>
-          </div>
+    <div class='leftCharacter' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="info.p1_char">
+            <img class="characterIcon" :src="char_1_img" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
 
-          <div class="rightCharacter" style="z-index: 4">
-              <transition name="fade" mode="out-in">
-                <span class="rightCharacter char" :key="info.p2_char">
-                  <img class="character_icon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
-                </span>
-              </transition>
-            </div>
-    
+    <div class="leftFlag">
+      <transition name="fade" mode="out-in">
+        <span :key="info.p1_country">
+            <img class="characterIcon" :src="p1_flag_img" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
 
-      <div class="leftScore skewed-rev score">
-        <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
-        </transition>
-      </div>
+    <div class="leftScore skewed-rev score">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
+      </transition>
+    </div>
 
-
+    <!-- middle -->
     <div class="roundcol">
       <transition name="fade" mode="out-in">
         <span class="round" :key="info.event_round" v-html="info.event_round"></span>
       </transition>
     </div>
 
+    <!-- RIGHT -->
+    <div class="rightCharacter" style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span class="rightCharacter char" :key="info.p2_char">
+          <img class="character_icon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
 
     <div class="playercol rightPlayer">
       <div class="skewed">
@@ -78,19 +190,27 @@
       </div>
     </div>
 
-      <div class="rightScore score skewed">
-        <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
-        </transition>
-      </div>
+    <div class="rightScore score skewed">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+      </transition>
+    </div>
 
-      <div class="rightPort">
-        <transition name="fade" mode="out-in">
-            <span :key="info.p2_port_color">
-                <img class="portIcon reverse" :src="p2_port_img" onerror='this.style.display = "none"'/>
-            </span>
-        </transition>
-      </div>
+    <div class="rightPort">
+      <transition name="fade" mode="out-in">
+          <span :key="info.p2_port_color">
+              <img class="portIcon reverse" :src="p2_port_img" onerror='this.style.display = "none"'/>
+          </span>
+      </transition>
+    </div>
+
+    <div class="rightFlag flag-mask-right">
+      <transition name="fade" mode="out-in">
+        <span :key="info.p2_country">
+            <img class="characterIcon" :src="p2_flag_img" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
 
   </div>
 </body>
