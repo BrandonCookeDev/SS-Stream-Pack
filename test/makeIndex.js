@@ -33,7 +33,7 @@ let template =
 		<h2>Overlay Files:</h2>
 		<ul>
 		{{#each templates}}
-			<li><a href="http://localhost:{{../port}}/{{this}}">{{this}}</a></li>
+			<li><a href="http://localhost:{{../port}}/OverlayFiles/{{this}}">{{this}}</a></li>
 		{{/each}}
 		</ul>
 	</body>

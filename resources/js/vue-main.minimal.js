@@ -3,7 +3,10 @@ function join(){
   let s = '';
   for(var i in arguments){
     var arg = arguments[i];
-    s += arg + '/'
+    s += arg 
+    
+    if(i != arguments.length - 1) 
+      s += '/'
   };
   return s;
 }

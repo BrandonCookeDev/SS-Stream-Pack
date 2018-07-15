@@ -9,7 +9,7 @@ let port = 8080;
 
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, '..')));
-app.use(express.static(path.join(__dirname, '../OverlayFiles')));
+app.use('/resources', express.static(path.join(__dirname, '..')));
 
 require('./makeIndex')(port);
 

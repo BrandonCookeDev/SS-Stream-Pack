@@ -85,11 +85,15 @@
   }
 
   div.leftFlag{
-    margin-top: 20px;
+    position: fixed;
+    margin-top: 1016px;
+    margin-left: 325px;
   }
 
   div.rightFlag{
-    margin-top: 20px;
+    position:fixed;
+    margin-top: 1016px;
+    margin-left: 1625px;
   }
 
   div.rightCharacter{
@@ -152,7 +156,7 @@
       </transition>
     </div>
 
-    <div class="leftFlag">
+    <div class="leftFlag flag-mask-left">
       <transition name="fade" mode="out-in">
         <span :key="info.p1_country">
             <img class="characterIcon" :src="p1_flag_img" onerror='this.style.display = "none"'/>
