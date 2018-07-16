@@ -37,12 +37,14 @@
 
   div.leftPort{
       position:fixed;
+      z-index: -4;
       margin-left: 600px;
       margin-top: 1015px;
   }
 
   div.rightPort{
       position:fixed;
+      z-index: -4;
       margin-top:1015px;
       margin-left:1182px;
   }
@@ -127,7 +129,7 @@
     <div class="leftPlayer">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
-          <span class="name " :key="info.p1_name" v-html="info.p1_name"></span>
+          <span class="name " :key="player1Nameplate" v-html="player1Nameplate"></span>
         </transition>
       </div>
     </div>
@@ -136,7 +138,7 @@
     <div class="leftCharacter">
       <transition name="fade" mode="out-in">
         <span class="leftCharacter char" :key="info.p1_char">
-          <img class="character_icon" :src="char_1_img" onerror='this.style.display = "none"'/>
+          <img class="character_icon" :src="player1Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
@@ -145,7 +147,7 @@
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
         <span :key="info.p1_port_color">
-            <img class="portIcon" :src="p1_port_img" onerror='this.style.display = "none"'/>
+            <img class="portIcon" :src="player1PortImg" onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
@@ -153,8 +155,8 @@
     <!-- LEFT FLAG -->
     <div class="leftFlag flag-mask-left">
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_country">
-            <img class="characterIcon" :src="p1_flag_img" onerror='this.style.display = "none"'/>
+        <span :key="player1Image">
+          <img class="characterIcon" :src="player1Image" onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
@@ -181,7 +183,7 @@
     <div class="playercol rightPlayer">
         <div class="skewed">
           <transition name="fade" mode="out-in">
-            <span class="name" :key="info.p2_name" v-html="info.p2_name" ></span>
+            <span class="name" :key="player2Nameplate" v-html="player2Nameplate" ></span>
           </transition>
         </div>
       </div>
@@ -191,7 +193,7 @@
     <div class="rightCharacter" style="z-index: 4">
         <transition name="fade" mode="out-in">
           <span class="rightCharacter char" :key="info.p2_char">
-            <img class="character_icon reverse" :src="char_2_img" onerror='this.style.display = "none"'/>
+            <img class="character_icon reverse" :src="player2Character" onerror='this.style.display = "none"'/>
           </span>
         </transition>
       </div>
@@ -207,7 +209,7 @@
     <div class="rightPort">
       <transition name="fade" mode="out-in">
           <span :key="info.p2_port_color">
-              <img class="portIcon reverse" :src="p2_port_img" onerror='this.style.display = "none"'/>
+              <img class="portIcon reverse" :src="player2PortImg" onerror='this.style.display = "none"'/>
           </span>
       </transition>
     </div>
@@ -215,8 +217,8 @@
     <!-- RIGHT FLAG/SPONSOR -->
     <div class="rightFlag flag-mask-right">
       <transition name="fade" mode="out-in">
-        <span :key="info.p2_country">
-            <img class="characterIcon" :src="p2_flag_img" onerror='this.style.display = "none"'/>
+        <span :key="player2Image">
+            <img class="characterIcon" :src="player2Image" onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>

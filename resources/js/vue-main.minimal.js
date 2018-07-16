@@ -1,5 +1,3 @@
-import '../../node_modules/moment';
-import '../../node_modules/axios';
 
 /** FILE SYSTEMS */
 const RESOURCES_DIR = '../resources'
@@ -12,7 +10,7 @@ const VIDEOS_DIR    = join(RESOURCES_DIR, 'videos');
 const CHARACTER_DIR   = join(IMAGES_DIR, 'Characters');
 const PORT_DIR        = join(IMAGES_DIR, 'Ports');
 const OVERLAY_DIR     = join(IMAGES_DIR, 'Overlays');
-const SPONSOR_DIR     = join(IMAGES_DIR, 'Sponsors');
+const SPONSOR_DIR     = join(IMAGES_DIR, 'Teams');
 const FLAG_DIR        = join(IMAGES_DIR, 'Flags/64flat');
 const EYES_DIR        = join(IMAGES_DIR, 'PlayerEyes');
 
@@ -24,12 +22,14 @@ const MELEE_CHAR_DIR  = join(CHARACTER_DIR, 'Melee');
 const SMASH4_CHAR_DIR = join(CHARACTER_DIR, 'Smash 4');
 
 //JSON Polling and Intervals
-var LEGAL_IMAGE_STATES = ['FLAG', 'SPONSOR'];
-var LEGAL_NAMEPLATE_STATES = ['TAG', 'TWITTER'];
-const POLL_INTERVAL = 500;
-const IMAGE_STATE_INTERVAL = 5000;
-const NAMEPLATE_STATE_INTERVAL = 5000;
-const JSON_PATH = JSON_PATH || '../StreamControl_0_4b/streamcontrol.json';
+var LEGAL_IMAGE_STATES         = ['FLAG', 'SPONSOR'];
+var LEGAL_NAMEPLATE_STATES     = ['TAG', 'TWITTER'];
+var IMAGE_STATE                = 'FLAG';
+var NAMEPLATE_STATE            = 'TAG';
+const POLL_INTERVAL            = 500;
+const IMAGE_STATE_INTERVAL     = 10000;
+const NAMEPLATE_STATE_INTERVAL = 10000;
+const JSON_PATH = '../StreamControl_0_4b/streamcontrol.json';
 
 var port         = 11769;
 const ROUND_INTERVAL = 10000;
@@ -99,8 +99,8 @@ var app = new Vue({
     info: {
         IMAGE_ROTATION_ON: false,
         NAMEPLATE_ROTATION_ON: false,
-        IMAGE_STATE: 'FLAG',
-        NAMEPLATE_STATE: 'TAG',
+        IMAGE_STATE: LEGAL_IMAGE_STATES[0],
+        NAMEPLATE_STATE: LEGAL_NAMEPLATE_STATES[0],
 
         pull_mode: 'PULL_ALL',
         event_countdown: 0,
@@ -118,6 +118,9 @@ var app = new Vue({
         // Setting a few default values for the flicker of time images take to load.
         p1_char: 'Default',
         p2_char: 'Default',
+        
+        p1_image: null,
+        p2_image: null,
 
         leftCharacterVideo: '',
         rightCharacterVideo: '',
@@ -128,23 +131,87 @@ var app = new Vue({
     },
     timestamp: new Date()
   },
-  watch: {
-    "info.IMAGE_STATE":{
-
-    },
-    "info.NAMEPLATE_STATE":{
-
-    },
-    "info.timer": {
-
-    }
-  },
+  watch: {},
   computed: {
     gameHeader: function(){
       return this.info.event_round + ' - ' + this.info.best_of_x;
     },
-    player1FlagSponsor: function(){
-      
+    player1Nameplate: function(){
+      switch(NAMEPLATE_STATE){
+      case 'TWITTER': 
+        return this.info.p1_twitter ? '@' + this.info.p1_twitter : this.info.p1_name
+      case 'TAG':
+      default:
+        return this.info.p1_name;
+      }
+    },
+    player1Image: function(){
+      switch(IMAGE_STATE){
+      case 'SPONSOR':
+        return fileExists(getSponsor(this.info.p1_sponsor)) ? 
+          getSponsor(this.info.p1_sponsor) : getFlag(this.info.p1_country);
+        break;
+      case 'FLAG':
+      default:
+        return getFlag(this.info.p1_country);
+      }
+    },
+    player2Nameplate: function(){
+      switch(NAMEPLATE_STATE){
+      case 'TWITTER': 
+        return this.info.p2_twitter ? '@' + this.info.p2_twitter : this.info.p2_name
+      case 'TAG':
+      default:
+        return this.info.p2_name;
+      }
+    },
+    player2Image: function(){
+      switch(IMAGE_STATE){
+      case 'SPONSOR':
+        return fileExists(getSponsor(this.info.p21_sponsor)) ? 
+          getSponsor(this.info.p2_sponsor) : getFlag(this.info.p2_country);
+      case 'FLAG':
+      default:
+        return getFlag(this.info.p2_country);
+      }
+    },
+    player3Nameplate: function(){
+      switch(NAMEPLATE_STATE){
+      case 'TWITTER': 
+      return this.info.p3_twitter ? '@' + this.info.p3_twitter : this.info.p3_name
+      case 'TAG':
+      default:
+        return this.info.p3_name;
+      }
+    },
+    player3Image: function(){
+      switch(IMAGE_STATE){
+      case 'SPONSOR':
+        return fileExists(getSponsor(this.info.p3_sponsor)) ? 
+          getSponsor(this.info.p3_sponsor) : getFlag(this.info.p3_country);
+      case 'FLAG':
+      default:
+        return getFlag(this.info.p3_country);
+      }
+    },
+    player4Nameplate: function(){
+      switch(NAMEPLATE_STATE){
+      case 'TWITTER': 
+        return this.info.p4_twitter ? '@' + this.info.p4_twitter : this.info.p4_name
+      case 'TAG':
+      default:
+        return this.info.p4_name;
+      }
+    },
+    player4Image: function(){
+      switch(IMAGE_STATE){
+      case 'SPONSOR':
+        return fileExists(getSponsor(this.info.p4_sponsor)) ? 
+          getSponsor(this.info.p4_sponsor) : getFlag(this.info.p4_country);
+      case 'FLAG':
+      default:
+        return getFlag(this.info.p4_country);
+      }
     },
     player1Character: function(){
       return getMeleeChar(this.info.p1_char);
@@ -261,12 +328,12 @@ var app = new Vue({
         .catch(resp => { console.error(resp); });
     },
     changeImageState: function(){
-      LEGAL_IMAGE_STATES = cycleArray(LEGAL_STATES);
-      this.info.IMAGE_STATE = LEGAL_IMAGE_STATES[0];
+      LEGAL_IMAGE_STATES = cycleArray(LEGAL_IMAGE_STATES);
+      IMAGE_STATE = LEGAL_IMAGE_STATES[0];
     },
-    changeNameplayState: function(){
+    changeNameplateState: function(){
       LEGAL_NAMEPLATE_STATES = cycleArray(LEGAL_NAMEPLATE_STATES);
-      this.into.NAMEPLATE_STATE = LEGAL_NAMEPLATE_STATES[0];
+      NAMEPLATE_STATE = LEGAL_NAMEPLATE_STATES[0];
     }
   },
   // Triggered when the vue instance is created, triggers the initial setup.
@@ -322,6 +389,10 @@ function join(){
       s += '/'
   };
   return s;
+}
+
+function formatTwitterHandle(name){
+  return `<img src="" height="30px" width="30px" onerror='this.style.display = "none"/>@${name}`;
 }
 
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
