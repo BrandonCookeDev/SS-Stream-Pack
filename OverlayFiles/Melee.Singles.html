@@ -65,7 +65,7 @@
         margin-left: 402px;
         margin-top: 1027px;
         justify-content: left;
-        z-index: -2;
+        z-index: 2;
     }
 
     div.rightPlayer{
@@ -73,7 +73,7 @@
         margin-left: 1265px;
         margin-top: 1025px;
         text-align: right;
-        z-index: -2;
+        z-index: 2;
     }
 
     div.leftScore{
@@ -94,7 +94,14 @@
         position: fixed;
         margin-top:1015px;
         margin-left:600px;
-        z-index: 0;
+        z-index: -2;
+    }
+
+    div.rightCharacter{
+        position: fixed;
+        margin-top:1015px;
+        margin-left:1200px;
+        z-index: -2;
     }
 
     div.leftFlag{
@@ -107,13 +114,6 @@
       position:fixed;
       margin-top: 1007px;
       margin-left: 1528px;
-    }
-
-    div.rightCharacter{
-        position: fixed;
-        margin-top:1015px;
-        margin-left:1200px;
-        z-index: 0;
     }
 
     div.score{
@@ -138,7 +138,7 @@
 
     <!-- LEFT -->
     <div class="leftPlayer">
-      <div class=" skewed-rev">
+      <div class="skewed-rev">
         <transition name="fade" mode="out-in">
           <span class="name " :key="player1Nameplate" v-html="player1Nameplate"></span>
         </transition>
@@ -167,8 +167,8 @@
     <!-- LEFT FLAG -->
     <div class="leftFlag flag-mask-left">
       <transition name="fade" mode="out-in">
-        <span :key="player1Image">
-          <img class="characterIcon" :src="player1Image" height="64px" 
+        <span :key="player1ImageS4">
+          <img class="characterIcon" :src="player1ImageS4" height="64px" 
             onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -231,8 +231,8 @@
     <!-- RIGHT FLAG/SPONSOR -->
     <div class="rightFlag flag-mask-right">
       <transition name="fade" mode="out-in">
-        <span :key="player2Image">
-            <img class="characterIcon" :src="player2Image" height="62px"
+        <span :key="player2ImageS4">
+            <img class="characterIcon" :src="player2ImageS4" height="62px"
               onerror='this.style.display = "none"'/>
         </span>
       </transition>

@@ -93,6 +93,79 @@ function getS4MUCharacter(character){
   return join(SMASH4_WEBM, 'Characters', character + '.webm');
 }
 
+function getNameplate(info, playerNumber){
+  if(!info)
+    throw new Error('getNameplate error: Info object is undefined');
+
+  let tag = info[`p${playerNumber}_name`];
+  let twitter = info[`p${playerNumber}_twitter`];
+  let sponsor = info[`p${playerNumber}_sponsor`];
+
+  switch(NAMEPLATE_STATE){
+  case 'TWITTER': 
+    return twitter ? 
+      `<img src=${getTwitterLogo()} height="20px" width="25px" />@${twitter}` : 
+      `<t>${sponsor || ''}</t>${tag}`;
+  case 'TAG':
+  default:
+    return `<t>${sponsor || ''}</t>${tag}`;
+  }
+}
+function getNameplateS4(info, playerNumber){
+  if(!info)
+    throw new Error('getNameplateS4 error: Info object is undefined');
+
+  let tag = info[`p${playerNumber}_name_s4`];
+  let twitter = info[`p${playerNumber}_twitter_s4`];
+  let sponsor = info[`p${playerNumber}_sponsor_s4`];
+
+  switch(NAMEPLATE_STATE){
+  case 'TWITTER': 
+    return twitter ? 
+      `<img src=${getTwitterLogo()} height="20px" width="25px" />@${twitter}` : 
+      `<t>${sponsor || ''}</t>${tag}`;
+  case 'TAG':
+  default:
+    return `<t>${sponsor || ''}</t>${tag}`;
+  }
+}
+
+function getImage(info, playerNumber){
+  if(!info)
+    throw new Error('getImage error: Info object is undefined');
+
+  let country = info[`p${playerNumber}_country`];
+  let sponsor = info[`p${playerNumber}_sponsor`];
+
+  switch(IMAGE_STATE){
+  case 'SPONSOR':
+    return fileExists(getSponsor(sponsor)) ? 
+      getSponsor(sponsor) : getFlag(country);
+    break;
+  case 'FLAG':
+  default:
+    return getFlag(country);
+  }
+}
+
+function getImageS4(info, playerNumber){
+  if(!info)
+    throw new Error('getImageS4 error: Info object is undefined');
+
+  let country = info[`p${playerNumber}_country_s4`];
+  let sponsor = info[`p${playerNumber}_sponsor_s4`];
+
+  switch(IMAGE_STATE){
+  case 'SPONSOR':
+    return fileExists(getSponsor(sponsor)) ? 
+      getSponsor(sponsor) : getFlag(country);
+    break;
+  case 'FLAG':
+  default:
+    return getFlag(country);
+  }
+}
+
 /**
  * Vue Application
  */
@@ -140,176 +213,22 @@ var app = new Vue({
     gameHeader: function(){
       return this.info.event_round + ' - ' + this.info.best_of_x;
     },
-    player1Nameplate: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-        return this.info.p1_twitter ? 
-          `<img src=${getTwitterLogo()} height="20px" width="25px" />@${this.info.p1_twitter}` : 
-          `<t>${this.info.p1_sponsor || ''}</t>${this.info.p1_name}`;
-      case 'TAG':
-      default:
-        return `<t>${this.info.p1_sponsor || ''}</t>${this.info.p1_name}`;
-      }
-    },
-    player1Image: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p1_sponsor)) ? 
-          getSponsor(this.info.p1_sponsor) : getFlag(this.info.p1_country);
-        break;
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p1_country);
-      }
-    },
-    player2Nameplate: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-        return this.info.p2_twitter ? 
-          '@' + this.info.p2_twitter : 
-          `<t>${this.info.p2_sponsor || ''}</t>${this.info.p2_name}`
-      case 'TAG':
-      default:
-        return `<t>${this.info.p2_sponsor || ''}</t>${this.info.p2_name}`
-      }
-    },
-    player2Image: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p21_sponsor)) ? 
-          getSponsor(this.info.p2_sponsor) : getFlag(this.info.p2_country);
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p2_country);
-      }
-    },
-    player3Nameplate: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-      return this.info.p3_twitter ? 
-        '@' + this.info.p3_twitter : 
-        `<t>${this.info.p3_sponsor || ''}</t>${this.info.p3_name}`
-      case 'TAG':
-      default:
-        return this.info.p3_name;
-      }
-    },
-    player3Image: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p3_sponsor)) ? 
-          getSponsor(this.info.p3_sponsor) : getFlag(this.info.p3_country);
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p3_country);
-      }
-    },
-    player4Nameplate: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-        return this.info.p4_twitter ? 
-          '@' + this.info.p4_twitter : 
-          `<t>${this.info.p4_sponsor || ''}</t>${this.info.p4_name}`;
-      case 'TAG':
-      default:
-        return this.info.p4_name;
-      }
-    },
-    player4Image: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p4_sponsor)) ? 
-          getSponsor(this.info.p4_sponsor) : getFlag(this.info.p4_country);
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p4_country);
-      }
-    },
-    player1NameplateS4: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-        return this.info.p1_twitter_s4 ? 
-          `<img src=${getTwitterLogo()} height="20px" width="25px" />@${this.info.p1_twitter_s4}` : 
-          `<t>${this.info.p1_sponsor_s4 || ''}</t>${this.info.p1_name_s4}`;
-      case 'TAG':
-      default:
-        return `<t>${this.info.p1_sponsor_s4 || ''}</t>${this.info.p1_name_s4}`;
-      }
-    },
-    player1ImageS4: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p1_sponsor_s4)) ? 
-          getSponsor(this.info.p1_sponsor_s4) : getFlag(this.info.p1_country_s4);
-        break;
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p1_country_s4);
-      }
-    },
-    player2NameplateS4: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-        return this.info.p2_twitter_s4 ? 
-          '@' + this.info.p2_twitter_s4 : 
-          `<t>${this.info.p2_sponsor_s4 || ''}</t>${this.info.p2_name_s4}`
-      case 'TAG':
-      default:
-        return `<t>${this.info.p2_sponsor_s4 || ''}</t>${this.info.p2_name_s4}`
-      }
-    },
-    player2ImageS4: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p2_sponsor_s4)) ? 
-          getSponsor(this.info.p2_sponsor_s4) : getFlag(this.info.p2_country_s4);
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p2_country_s4);
-      }
-    },
-    player3NameplateS4: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-      return this.info.p3_twitter_s4 ? 
-        '@' + this.info.p3_twitter_s4 : 
-        `<t>${this.info.p3_sponsor_s4 || ''}</t>${this.info.p3_name_s4}`
-      case 'TAG':
-      default:
-        return this.info.p3_name_s4;
-      }
-    },
-    player3ImageS4: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p3_sponsor_s4)) ? 
-          getSponsor(this.info.p3_sponsor_s4) : getFlag(this.info.p3_country_s4);
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p3_country_s4);
-      }
-    },
-    player4NameplateS4: function(){
-      switch(NAMEPLATE_STATE){
-      case 'TWITTER': 
-        return this.info.p4_twitter_s4 ? 
-          '@' + this.info.p4_twitter_s4 : 
-          `<t>${this.info.p4_sponsor_s4 || ''}</t>${this.info.p4_name_s4}`;
-      case 'TAG':
-      default:
-        return this.info.p4_name_s4;
-      }
-    },
-    player4ImageS4: function(){
-      switch(IMAGE_STATE){
-      case 'SPONSOR':
-        return fileExists(getSponsor(this.info.p4_sponsor_s4)) ? 
-          getSponsor(this.info.p4_sponsor_s4) : getFlag(this.info.p4_country_s4);
-      case 'FLAG':
-      default:
-        return getFlag(this.info.p4_country_s4);
-      }
-    },
+    player1Nameplate: function() { return getNameplate(this.info, 1) },
+    player2Nameplate: function(){ return getNameplate(this.info, 2) },
+    player3Nameplate: function(){ return getNameplate(this.info, 3) },
+    player4Nameplate: function(){ return getNameplate(this.info, 4) },
+    player1NameplateS4: function(){ return getNameplateS4(this.info, 1) },
+    player2NameplateS4: function(){ return getNameplateS4(this.info, 2) },
+    player3NameplateS4: function(){ return getNameplateS4(this.info, 3) },
+    player4NameplateS4: function(){ return getNameplateS4(this.info, 4) },
+    player1Image: function(){ return getImage(this.info, 1) },
+    player2Image: function(){ return getImage(this.info, 2) },
+    player3Image: function(){ return getImage(this.info, 3) },
+    player4Image: function(){ return getImage(this.info, 4) },
+    player1ImageS4: function(){ return getImageS4(this.info, 1)},
+    player2ImageS4: function(){ return getImageS4(this.info, 2) },
+    player3ImageS4: function(){ return getImageS4(this.info, 3) },
+    player4ImageS4: function(){ return getImageS4(this.info, 4) },
     player1Character: function(){
       return getMeleeChar(this.info.p1_char);
     },
