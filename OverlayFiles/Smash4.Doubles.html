@@ -13,6 +13,18 @@
   <script src="../node_modules/axios/dist/axios.js"></script>
   
   <style>
+    img.flag{
+      height: 43px;
+    }
+
+    img.characterIcon{
+      height: 37px;
+    }
+
+    img.portIcon{
+      height: 37px;
+    }
+    
     div.playercol{
       position:fixed;
       width: 13%;
@@ -22,7 +34,6 @@
         position: fixed;
         display: flex;
         justify-content: center;
-
     }
 
     div.round{
@@ -53,12 +64,14 @@
         margin-left: 500px;
         margin-top: 40px;
         font-size: 15pt;
+        z-index: 2;
     }
     div.leftPlayer2{
         position: fixed;
         margin-left: 513px;
         margin-top: 85px;
         font-size: 15pt;
+        z-index: 2;
     }
     div.rightPlayer3{
         position: fixed;
@@ -67,6 +80,7 @@
         text-align: right;
         font-size: 15pt;
         width: 13%;
+        z-index: 2;
     }
     div.rightPlayer4{
         position: fixed;
@@ -75,9 +89,10 @@
         text-align: right;
         font-size: 15pt;
         width: 13%;
+        z-index: 2;
     }
 
-/* SCORES */
+    /* SCORES */
     div.leftScore{
         position: fixed;
         margin-left: 762px;
@@ -89,6 +104,10 @@
         margin-left: 1119px;
         margin-top: 35px;
         justify-content: right;
+    }
+    div.score{
+        font-size: 50pt;
+        font-weight: 100;
     }
 
     /* CHARACTERS */
@@ -122,47 +141,51 @@
     div.leftPort1{
         position: fixed;
         margin-top: 35px;
-        margin-left: 656px;;
+        margin-left: 652px;;
         z-index: -3;
     }
 
     div.leftPort2{
         position: fixed;
         margin-top: 78px;
-        margin-left: 671px;
+        margin-left: 666px;
         z-index: -3;
     }
     div.rightPort3{
         position: fixed;
         margin-top: 35px;
-        margin-left: 1175px;
+        margin-left: 1177px;
         z-index: -3;
     }
     div.rightPort4{
         position: fixed;
         margin-top: 78px;
-        margin-left: 1160px;
+        margin-left: 1162px;
         z-index: -3;
     }
 
     /* IMAGE */
     div.leftImage1{
       position:fixed;
+      margin-top: 29px;
+      margin-left: 434px;
     }
     div.leftImage2{
       position:fixed;
+      margin-top: 73px;
+      margin-left: 449px;
     }
     div.rightImage3{
       position:fixed;
+      margin-top: 29px;
+      margin-left: 1423px;
     }
     div.rightImage4{
       position:fixed;
+      margin-top: 73px;
+      margin-left: 1408px;
     }
 
-    div.score{
-        font-size: 50pt;
-        font-weight: 100;
-    }
 
   </style>
 </head>
@@ -190,7 +213,7 @@
     <div class="leftPort1">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="info.p1_port_color">
-            <img class='characterIcon' :src="player1PortImgS4" onerror='this.style.display = "none"' / >
+            <img class='portIcon' :src="player1PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -198,7 +221,7 @@
     <div class="leftImage1 flag-mask-left">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="player1ImageS4">
-            <img class='characterIcon' :src="player1ImageS4" onerror='this.style.display = "none"' / >
+            <img class='flag' :src="player1ImageS4"  onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -223,7 +246,7 @@
     <div class="leftPort2">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="info.p2_port_color">
-            <img class='characterIcon' :src="player2PortImgS4" onerror='this.style.display = "none"' / >
+            <img class='portIcon' :src="player2PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -231,7 +254,7 @@
     <div class="leftImage2 flag-mask-left">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="player2ImageS4">
-            <img class='characterIcon' :src="player2ImageS4" onerror='this.style.display = "none"' / >
+            <img class='flag' :src="player2ImageS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -285,7 +308,7 @@
     <div class="rightPort3">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="info.p3_port_color">
-            <img class='characterIcon reverse' :src="player3PortImgS4" onerror='this.style.display = "none"' / >
+            <img class='portIcon reverse' :src="player3PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -293,7 +316,7 @@
     <div class="rightImage3 flag-mask-right">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="player3ImageS4">
-            <img class='characterIcon' :src="player3ImageS4" onerror='this.style.display = "none"' / >
+            <img class='flag' :src="player3ImageS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -318,7 +341,7 @@
     <div class="rightPort4">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="info.p4_port_color">
-            <img class='characterIcon reverse' :src="player4PortImgS4" onerror='this.style.display = "none"' / >
+            <img class='portIcon reverse' :src="player4PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>
@@ -326,7 +349,7 @@
     <div class="rightImage4 flag-mask-right">
       <transition name="fade" mode="out-in">
           <span class="leftCharacter char" :key="player4ImageS4">
-            <img class='characterIcon' :src="player4ImageS4" onerror='this.style.display = "none"' / >
+            <img class='flag' :src="player4ImageS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
     </div>

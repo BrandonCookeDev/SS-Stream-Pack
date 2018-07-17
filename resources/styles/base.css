@@ -27,6 +27,10 @@ img.reverse{
   -ms-filter: "FlipH";
 }
 
+img.reverse-horizontal{
+  transform: rotateX(180deg);
+}
+
 @font-face {
   font-family: "Gill Sans";
   src: url('../fonts/GillSans.ttc');

@@ -11,6 +11,169 @@
 
   <script src="../node_modules/vue/dist/vue.js"></script>
   <script src="../node_modules/axios/dist/axios.js"></script>
+
+  <style>
+    img.character{
+      height: 50px;
+    }
+
+    img.port{
+      height: 50px;
+    }
+
+    img.flag{
+      height: 53px;
+    }
+
+    div.roundcol{
+        position: fixed;
+        display: felx;
+        justify-content: center;
+
+        margin-top:23px;
+        margin-left: 650px;
+
+        width: 20%;
+        color:  #f5cb0d;
+        letter-spacing: -2pt;
+        font-weight: bold;
+        font-size:18pt;
+        text-shadow: 1ch;
+    }
+
+    div.leftPlayer1{
+        position: fixed;
+        text-align: left;
+
+        margin-left: 1525px;
+        margin-top: 465px;
+        font-size: 22pt;
+        z-index: 4;
+    }
+
+    div.leftPlayer2{
+        position: fixed;
+        text-align: left;
+
+        margin-left: 1545px;
+        margin-top: 520px;
+        font-size: 22pt;
+        z-index: 4;
+    }
+
+    div.rightPlayer3{
+        position: fixed;
+        text-align: left;
+
+        margin-left: 1545px;
+        margin-top: 585px;
+        font-size: 22pt;
+        z-index: 4;
+    }
+
+    div.rightPlayer4{
+        position: fixed;
+        text-align: left;
+
+        margin-left: 1525px;
+        margin-top: 642px;
+        font-size: 22pt;
+        z-index: 4;
+    }
+
+    div.rightScore{
+        position: fixed;
+        
+        margin-left: 1835px;
+        margin-top:590px;
+    }
+
+    div.leftScore{
+        position: fixed;
+        margin-left: 1835px;
+        margin-top:463px;
+    }
+
+    div.score{
+        font-size: 55pt;
+        font-weight: 100;
+    }
+
+    /* CHARACTERS */
+    div.leftCharacter1{
+        position: fixed;
+        z-index: 2;
+        margin-left: 1690px;
+        margin-top: 458px;
+    }
+    div.leftCharacter2{
+        position: fixed;
+        z-index: 2;
+        margin-left: 1725px;
+        margin-top: 513px;
+    }
+    div.rightCharacter3{
+        position: fixed;
+        z-index: 2;
+        margin-left: 1725px;
+        margin-top: 580px;
+    }
+    div.rightCharacter4{
+        position: fixed;
+        z-index: 2;
+        margin-left: 1690px;
+        margin-top: 634px;
+    }
+
+    /* PORTS */
+    div.leftPort1{
+        position: fixed;
+        z-index: -2;
+        margin-left: 1698px;
+        margin-top: 458px;
+    }
+    div.leftPort2{
+        position: fixed;
+        z-index: -2;
+        margin-left: 1717px;
+        margin-top: 512px;
+    }
+    div.rightPort3{
+        position:fixed;
+        z-index: -2;
+        margin-left: 1717px;
+        margin-top: 580px;
+    }
+    div.rightPort4{
+        position:fixed;
+        z-index: -2;
+        margin-left: 1698px;
+        margin-top: 634px;
+    }
+
+    /* IMAGES */
+    div.leftImage1{
+      position:fixed;
+        margin-left: 1437px;
+        margin-top: 453px;
+    }
+    div.leftImage2{
+      position:fixed;
+        margin-left: 1456px;
+        margin-top: 507px;
+    }
+    div.rightImage3{
+      position:fixed;
+        margin-left: 1455px;
+        margin-top: 575px;
+    }
+    div.rightImage4{
+      position:fixed;
+        margin-left: 1436px;
+        margin-top: 630px;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -28,15 +191,23 @@
     <div class="leftCharacter1">
       <transition name="fade" mode="out-in">
         <span class="leftCharacter char" :key="info.p1_char">
-          <img class="character_icon" :src="player1Character"  onerror='this.style.display = "none"'/>
+          <img class="character" :src="player1Character"  onerror='this.style.display = "none"'/>
         </span> 
       </transition>
     </div>
 
     <div class="leftPort1">
       <transition name="fade" mode="out-in">
-        <span class="leftCharacter char" :key="info.p1_port">
-          <img class="character_icon" :src="player1PortImg"  onerror='this.style.display = "none"'/>
+        <span class="leftCharacter char" :key="info.p1_port_color">
+          <img class="port" :src="player1PortImg"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <div class="leftImage1 flag-mask-left">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="player1Image">
+          <img class="flag" :src="player1Image"  onerror='this.style.display = "none"'/>
         </span> 
       </transition>
     </div>
@@ -53,15 +224,23 @@
     <div class="leftCharacter2">
       <transition name="fade" mode="out-in">
         <span class="leftCharacter char" :key="info.p2_char">
-          <img class="character_icon" :src="player2Character"  onerror='this.style.display = "none"'/>
+          <img class="character" :src="player2Character"  onerror='this.style.display = "none"'/>
         </span> 
       </transition>
     </div>
     
     <div class="leftPort2">
       <transition name="fade" mode="out-in">
-        <span class="leftCharacter char" :key="info.p2_port">
-          <img class="character_icon" :src="player2PortImg"  onerror='this.style.display = "none"'/>
+        <span class="leftCharacter char" :key="info.p2_port_color">
+          <img class="port" :src="player2PortImg"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <div class="leftImage2 flag-mask-left">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="player2Image">
+          <img class="flag" :src="player2Image"  onerror='this.style.display = "none"'/>
         </span> 
       </transition>
     </div>
@@ -82,6 +261,13 @@
         </div>
     </div>
 
+    <!-- LEFT TEAM SCORE -->
+    <div class="rightScore skewed score">
+        <transition name="fade" mode="out-in">
+          <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+        </transition>
+      </div>
+
     <!-- RIGHT PLAYER 3 -->
     <div class="rightPlayer3">
       <div class="skewed">
@@ -94,16 +280,24 @@
     <div class="rightCharacter3">
       <transition name="fade" mode="out-in">
         <span class="char" :key="info.p3_char">
-          <img class="character_icon" :src="player3Character"  onerror='this.style.display = "none"'/>
+          <img class="character" :src="player3Character"  onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
 
     <div class="rightPort3">
       <transition name="fade" mode="out-in">
-        <span class="char" :key="info.p3_port">
-          <img class="character_icon" :src="player3PortImg"  onerror='this.style.display = "none"'/>
+        <span class="char" :key="info.p3_port_color">
+          <img class="port reverse-horizontal" :src="player3PortImg"  onerror='this.style.display = "none"'/>
         </span>
+      </transition>
+    </div>
+
+    <div class="rightImage3 flag-mask-right">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="player3Image">
+          <img class="flag" :src="player3Image"  onerror='this.style.display = "none"'/>
+        </span> 
       </transition>
     </div>
 
@@ -119,19 +313,26 @@
     <div class="rightCharacter4">
       <transition name="fade" mode="out-in">
         <span class="char" :key="info.p4_char">
-          <img class="character_icon" :src="player4Character"  onerror='this.style.display = "none"'/>
+          <img class="character" :src="player4Character"  onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
 
     <div class="rightPort4">
       <transition name="fade" mode="out-in">
-        <span class="char" :key="info.p4_port">
-          <img class="character_icon" :src="player4PortImg"  onerror='this.style.display = "none"'/>
+        <span class="char" :key="info.p4_port_color">
+          <img class="port reverse-horizontal" :src="player4PortImg"  onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
-
+    
+    <div class="rightImage4 flag-mask-right">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="player4Image">
+          <img class="flag" :src="player4Image"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
   </div>
 </body>
 

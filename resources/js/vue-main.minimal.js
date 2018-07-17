@@ -188,6 +188,12 @@ var app = new Vue({
 
         p1_name: '',
         p2_name: '',
+        p3_name: '',
+        p4_name: '',
+        p1_name_s4: '',
+        p2_name_s4: '',
+        p3_name_s4: '',
+        p4_name_s4: '',
 
         p1_games: '',
         p2_games: '',
