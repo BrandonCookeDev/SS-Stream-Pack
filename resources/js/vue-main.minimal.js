@@ -61,6 +61,10 @@ class Crew{
     }
 }
 
+function getTwitterLogo(){
+  return join(IMAGES_DIR, 'General', 'twitter.png');
+}
+
 function getMeleeChar(character){
   return join(MELEE_CHAR_DIR, character + '.png');
 }
@@ -139,10 +143,12 @@ var app = new Vue({
     player1Nameplate: function(){
       switch(NAMEPLATE_STATE){
       case 'TWITTER': 
-        return this.info.p1_twitter ? '@' + this.info.p1_twitter : this.info.p1_name
+        return this.info.p1_twitter ? 
+          `<img src=${getTwitterLogo()} height="15px" width="20px" />@${this.info.p1_twitter}` : 
+          `<t>${this.info.p1_sponsor || ''}</t>${this.info.p1_name}`;
       case 'TAG':
       default:
-        return this.info.p1_name;
+        return `<t>${this.info.p1_sponsor || ''}</t>${this.info.p1_name}`;
       }
     },
     player1Image: function(){
@@ -159,10 +165,12 @@ var app = new Vue({
     player2Nameplate: function(){
       switch(NAMEPLATE_STATE){
       case 'TWITTER': 
-        return this.info.p2_twitter ? '@' + this.info.p2_twitter : this.info.p2_name
+        return this.info.p2_twitter ? 
+          '@' + this.info.p2_twitter : 
+          `<t>${this.info.p2_sponsor || ''}</t>${this.info.p2_name}`
       case 'TAG':
       default:
-        return this.info.p2_name;
+        return `<t>${this.info.p2_sponsor || ''}</t>${this.info.p2_name}`
       }
     },
     player2Image: function(){
@@ -178,7 +186,9 @@ var app = new Vue({
     player3Nameplate: function(){
       switch(NAMEPLATE_STATE){
       case 'TWITTER': 
-      return this.info.p3_twitter ? '@' + this.info.p3_twitter : this.info.p3_name
+      return this.info.p3_twitter ? 
+        '@' + this.info.p3_twitter : 
+        `<t>${this.info.p3_sponsor || ''}</t>${this.info.p3_name}`
       case 'TAG':
       default:
         return this.info.p3_name;
@@ -197,7 +207,9 @@ var app = new Vue({
     player4Nameplate: function(){
       switch(NAMEPLATE_STATE){
       case 'TWITTER': 
-        return this.info.p4_twitter ? '@' + this.info.p4_twitter : this.info.p4_name
+        return this.info.p4_twitter ? 
+          '@' + this.info.p4_twitter : 
+          `<t>${this.info.p4_sponsor || ''}</t>${this.info.p4_name}`;
       case 'TAG':
       default:
         return this.info.p4_name;
