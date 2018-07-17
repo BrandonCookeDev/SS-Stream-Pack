@@ -14,109 +14,120 @@
   <!--<link rel="stylesheet" type="text/css" href="../resources/styles/melee.Singles.css" /> -->
   
   <style>
-  div.playercol{
+
+    /*
+    body{
+      background-image: url('../resources/images/Overlays/Momocon/melee_singles.png');
+      height: 1080px;
+      width: 1920px;
+      background-repeat: no-repeat;
+      background-size: auto;
+    }
+    */
+
+    div.playercol{
+        position:fixed;
+        width: 13%;
+    }
+
+    div.roundcol{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+
+        margin-top:24px;
+        margin-left: 769px;
+
+        width: 20%;
+        color:  #f5cb0d;
+        letter-spacing: -2pt;
+        font-weight: bold;
+        font-size:18pt;
+        text-shadow: 1ch;
+    }
+
+    div.leftPort{
+        position:fixed;
+        z-index: -4;
+        margin-left: 600px;
+        margin-top: 1015px;
+    }
+
+    div.rightPort{
+        position:fixed;
+        z-index: -4;
+        margin-top:1015px;
+        margin-left:1182px;
+    }
+
+    div.leftPlayer{
+        position: fixed;
+        margin-left: 402px;
+        margin-top: 1027px;
+        justify-content: left;
+        z-index: -2;
+    }
+
+    div.rightPlayer{
+        position: fixed;
+        margin-left: 1265px;
+        margin-top: 1025px;
+        text-align: right;
+        z-index: -2;
+    }
+
+    div.leftScore{
+        position: fixed;
+        margin-left: 755px;
+        margin-top: 1015px;
+        justify-content: left;
+    }
+
+    div.rightScore{
+        position: fixed;
+        margin-left: 1137px;
+        margin-top: 1015px;
+        justify-content: right;
+    }
+
+    div.leftCharacter{
+        position: fixed;
+        margin-top:1015px;
+        margin-left:600px;
+        z-index: 0;
+    }
+
+    div.leftFlag{
+      position: fixed;
+      margin-top: 1007px;
+      margin-left: 299px;
+    }
+
+    div.rightFlag{
       position:fixed;
-      width: 13%;
-  }
+      margin-top: 1007px;
+      margin-left: 1528px;
+    }
 
-  div.roundcol{
-      position: fixed;
-      display: flex;
-      justify-content: center;
+    div.rightCharacter{
+        position: fixed;
+        margin-top:1015px;
+        margin-left:1200px;
+        z-index: 0;
+    }
 
-      margin-top:24px;
-      margin-left: 769px;
+    div.score{
+        font-size: 32pt;
+        font-weight: 100;
+    }
 
-      width: 20%;
-      color:  #f5cb0d;
-      letter-spacing: -2pt;
-      font-weight: bold;
-      font-size:18pt;
-      text-shadow: 1ch;
-  }
+    img.portIcon{
+        z-index: -2;
+    }
 
-  div.leftPort{
-      position:fixed;
-      z-index: -4;
-      margin-left: 600px;
-      margin-top: 1015px;
-  }
-
-  div.rightPort{
-      position:fixed;
-      z-index: -4;
-      margin-top:1015px;
-      margin-left:1182px;
-  }
-
-  div.leftPlayer{
-      position: fixed;
-      margin-left: 402px;
-      margin-top: 1027px;
-      justify-content: left;
-      z-index: -2;
-  }
-
-  div.rightPlayer{
-      position: fixed;
-      margin-left: 1265px;
-      margin-top: 1025px;
-      text-align: right;
-      z-index: -2;
-  }
-
-  div.leftScore{
-      position: fixed;
-      margin-left: 755px;
-      margin-top: 1015px;
-      justify-content: left;
-  }
-
-  div.rightScore{
-      position: fixed;
-      margin-left: 1135px;
-      margin-top: 1015px;
-      justify-content: right;
-  }
-
-  div.leftCharacter{
-      position: fixed;
-      margin-top:1016px;
-      margin-left:600px;
-      z-index: 0;
-  }
-
-  div.leftFlag{
-    position: fixed;
-    margin-top: 1016px;
-    margin-left: 325px;
-  }
-
-  div.rightFlag{
-    position:fixed;
-    margin-top: 1016px;
-    margin-left: 1625px;
-  }
-
-  div.rightCharacter{
-      position: fixed;
-      margin-top:1015px;
-      margin-left:1200px;
-      z-index: 0;
-  }
-
-  div.score{
-      font-size: 32pt;
-      font-weight: 100;
-  }
-
-  img.portIcon{
-      z-index: -2;
-  }
-
-  img.characterIcon{
-      z-index: 0;
-  }
+    img.characterIcon{
+        z-index: 0;
+    }
 
   </style>
 
@@ -138,7 +149,8 @@
     <div class="leftCharacter">
       <transition name="fade" mode="out-in">
         <span class="leftCharacter char" :key="info.p1_char">
-          <img class="character_icon" :src="player1Character" onerror='this.style.display = "none"'/>
+          <img class="character_icon" :src="player1Character" 
+            height="56px" onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
@@ -156,7 +168,8 @@
     <div class="leftFlag flag-mask-left">
       <transition name="fade" mode="out-in">
         <span :key="player1Image">
-          <img class="characterIcon" :src="player1Image" onerror='this.style.display = "none"'/>
+          <img class="characterIcon" :src="player1Image" height="64px" 
+            onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>
@@ -193,7 +206,8 @@
     <div class="rightCharacter" style="z-index: 4">
         <transition name="fade" mode="out-in">
           <span class="rightCharacter char" :key="info.p2_char">
-            <img class="character_icon reverse" :src="player2Character" onerror='this.style.display = "none"'/>
+            <img class="character_icon reverse" :src="player2Character"
+              height="56px" onerror='this.style.display = "none"'/>
           </span>
         </transition>
       </div>
@@ -218,7 +232,8 @@
     <div class="rightFlag flag-mask-right">
       <transition name="fade" mode="out-in">
         <span :key="player2Image">
-            <img class="characterIcon" :src="player2Image" onerror='this.style.display = "none"'/>
+            <img class="characterIcon" :src="player2Image" height="62px"
+              onerror='this.style.display = "none"'/>
         </span>
       </transition>
     </div>

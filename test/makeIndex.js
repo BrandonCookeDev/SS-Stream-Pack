@@ -7,14 +7,16 @@ const fs = require('fs')
 
 const OVERLAY_DIR = path.join(__dirname, '../OverlayFiles');
 
+const index = path.join(__dirname, '..', 'index.html');
+
 module.exports = function(port){
 	try{
-		if(fs.existsSync(path.join(__dirname, 'index.html'))) 
-			fs.unlinkSync(path.join(__dirname, 'index.html'));
+		if(fs.existsSync(index)) 
+			fs.unlinkSync(index);
 		let templates = fs.readdirSync(OVERLAY_DIR);
 		let variables = {templates: templates, port: port};
 		let merged = handlebars.compile(template)(variables);
-		fs.writeFileSync(path.join(__dirname, 'index.html'), merged);
+		fs.writeFileSync(index, merged);
 		console.info('wrote index.html with content: \n%s\nVariables: %s', chalk.grey(merged), chalk.blue(JSON.stringify(variables)));
 		return true;
 	} catch(e){

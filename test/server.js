@@ -7,9 +7,9 @@ let express = require('express');
 let app = express();
 let port = 8080;
 
-app.use(express.static(__dirname));
+//app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, '..')));
-app.use('/resources', express.static(path.join(__dirname, '..')));
+//app.use('/resources', express.static(path.join(__dirname, '..')));
 
 require('./makeIndex')(port);
 
