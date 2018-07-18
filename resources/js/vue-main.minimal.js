@@ -124,7 +124,7 @@ function getNameplateS4(info, playerNumber){
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
     return twitter ? 
-      `<img src=${getTwitterLogo()} height="20px" width="25px" />@${twitter}` : 
+      `@${twitter}` : 
       `<t>${sponsor || ''}</t>${tag}`;
   case 'TAG':
   default:
