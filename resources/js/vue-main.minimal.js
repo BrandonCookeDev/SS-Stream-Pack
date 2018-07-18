@@ -101,10 +101,12 @@ function getNameplate(info, playerNumber){
   let twitter = info[`p${playerNumber}_twitter`];
   let sponsor = info[`p${playerNumber}_sponsor`];
 
+  let twitterTag = `<img src=${getTwitterLogo()} height="20px" width="25px" />`;
+
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
     return twitter ? 
-      `<img src=${getTwitterLogo()} height="20px" width="25px" />@${twitter}` : 
+      `@${twitter}` : 
       `<t>${sponsor || ''}</t>${tag}`;
   case 'TAG':
   default:
@@ -139,7 +141,7 @@ function getImage(info, playerNumber){
 
   switch(IMAGE_STATE){
   case 'SPONSOR':
-    return fileExists(getSponsor(sponsor)) ? 
+    return sponsor && fileExists(getSponsor(sponsor)) ? 
       getSponsor(sponsor) : getFlag(country);
     break;
   case 'FLAG':

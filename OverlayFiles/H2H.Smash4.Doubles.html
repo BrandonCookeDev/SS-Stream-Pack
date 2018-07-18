@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/masks.css" />
+  <!--<link rel="stylesheet" type="text/css" href="../resources/styles/head2head.Melee.Singles.css" />-->
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+
+  <style>
+    div.playercol{
+        position:fixed;
+        width: 13%;
+    }
+
+    div.roundcol{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+
+        margin-top:24px;
+        margin-left: 772px;
+
+        width: 20%;
+        color:  #f5cb0d;
+        letter-spacing: -2pt;
+        font-weight: bold;
+        font-size:18pt;
+        text-shadow: 1ch;
+    }
+
+    div.leftDisplay{
+      position:fixed;
+    }
+
+    div.rightDisplay{
+      position: fixed;
+    }
+    
+    /* PORTS */
+    div.leftPort1{
+        position:fixed;
+        margin-left: 378px;
+        margin-top: 920px;
+    }
+    div.leftPort2{
+        position:fixed;
+        margin-left: 402px;
+        margin-top: 989px;
+    }
+    div.rightPort3{
+        position:fixed;
+        margin-top: 920px;
+        margin-left: 1395px;
+    }
+    div.rightPort4{
+        position:fixed;
+        margin-top: 989px;
+        margin-left: 1370px;
+    }
+
+    /** NAMES */
+    div.leftPlayer1{
+        position: fixed;
+        margin-left: 150px;
+        margin-top: 932px;
+        justify-content: left;
+        z-index: -2;
+        font-size: 22pt;
+    }
+    div.leftPlayer2{
+        position: fixed;
+        margin-left: 175px;
+        margin-top: 1002px;
+        justify-content: left;
+        z-index: -2;
+        font-size: 22pt;
+    }
+    div.rightPlayer3{
+        position: fixed;
+        margin-left: 1520px;
+        margin-top: 932px;
+        text-align: right;
+        z-index: -2;
+        font-size: 22pt;
+    }
+    div.rightPlayer4{
+        position: fixed;
+        margin-left: 1495px;
+        margin-top: 1002px;
+        text-align: right;
+        z-index: -2;
+        font-size: 22pt;
+    }
+
+    /* SCORES */
+    div.leftScore{
+        position: fixed;
+        margin-left: 558px;
+        margin-top: 925px;
+        justify-content: left;
+    }
+    div.rightScore{
+        position: fixed;
+        margin-left: 1305px;
+        margin-top: 925px;
+        justify-content: right;
+    }
+
+    /* CHARACTERS */
+    div.leftCharacter1{
+        position: fixed;
+        margin-left:365px;
+        margin-top: 920px;
+        z-index: 0;
+    }
+    div.leftCharacter2{
+        position: fixed;
+        margin-left:400px;
+        margin-top: 989px;
+        z-index: 0;
+    }
+    div.rightCharacter3{
+        position: fixed;
+        margin-left:1420px;
+        margin-top: 920px;
+        z-index: 0;
+    }
+    div.rightCharacter4{
+        position: fixed;
+        margin-left:1385px;
+        margin-top: 989px;
+        z-index: 0;
+    }
+
+    /* FLAG */
+    div.leftFlag1{
+      position: fixed;
+      margin-top: 913px;
+      margin-left: 35px;
+    }
+    div.leftFlag2{
+      position: fixed;
+      margin-top: 983px;
+      margin-left: 60px;
+    }
+    div.rightFlag3{
+      position: fixed;
+      margin-top: 913px;
+      margin-left: 1781px;
+    }
+    div.rightFlag4{
+      position: fixed;
+      margin-top: 983px;
+      margin-left: 1756px;
+    }
+
+    div.score{
+        font-size: 72pt;
+        font-weight: 100;
+    }
+
+    img.portIcon{
+        z-index: -2;
+    }
+
+    img.flag{
+      height: 70px;
+    }
+
+    img.characterIcon{
+        height: 60px;
+        z-index: 0;
+    }
+    
+    img.portIcon{
+        height: 60px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- LEFT PLAYER 1 -->
+    <div class="leftPlayer1" style="z-index: 5">
+      <div class=" skewed-rev">
+        <transition name="fade" mode="out-in">
+          <span class="name " :key="player1NameplateS4" v-html="player1NameplateS4"></span>
+        </transition>
+      </div>
+    </div>
+    
+    <div class='leftPort1'>
+      <transition name="fade" mode="out-in">
+        <span :key="info.p1_port_color_s4">
+            <img class="portIcon" :src="player1PortImgS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <div class='leftCharacter1' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="info.p1_char_s4">
+            <img class="characterIcon" :src="player1CharacterS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <div class='leftFlag1 flag-mask-left' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="player1ImageS4">
+            <img class="flag" :src="player1ImageS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <!-- LEFT PLAYER 2 -->
+    <div class="leftPlayer2" style="z-index: 5">
+      <div class=" skewed-rev">
+        <transition name="fade" mode="out-in">
+          <span class="name " :key="player2NameplateS4" v-html="player2NameplateS4"></span>
+        </transition>
+      </div>
+    </div>
+    
+    <div class='leftPort2'>
+      <transition name="fade" mode="out-in">
+        <span :key="info.p2_port_color_s4">
+            <img class="portIcon" :src="player2PortImgS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <div class='leftCharacter2' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="info.p2_char_s4">
+            <img class="characterIcon" :src="player2CharacterS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <div class='leftFlag2 flag-mask-left' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="player2ImageS4">
+            <img class="flag" :src="player2ImageS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <!-- LEFT SCORE -->
+    <div class="leftScore skewed-rev score">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p1_games_s4" v-html="info.p2_games"></span>
+      </transition>
+    </div>
+
+
+    <!-- MIDDLE -->
+    <div class="roundcol">
+      <transition name="fade" mode="out-in">
+        <span class="round" :key="info.event_round" v-html="info.event_round"></span>
+      </transition>
+    </div>
+
+    <!-- RIGHT SCORE -->
+    <div class="rightScore score skewed">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p2_games_s4" v-html="info.p2_games"></span>
+      </transition>
+    </div>
+
+
+    <!-- RIGHTPLAYER 3 -->
+    <div class="playercol rightPlayer3 " style="z-index: 5">
+      <div class="skewed">
+        <transition name="fade" mode="out-in">
+          <span class="name" :key="player3NameplateS4" v-html="player3NameplateS4" ></span>
+        </transition>
+      </div>
+    </div>
+
+    <div class="rightCharacter3" style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span class="rightCharacter3 char" :key="info.p3_char_s4">
+          <img class="characterIcon reverse" :src="player3CharacterS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+    
+    <div class="rightPort3">
+      <transition name="fade" mode="out-in">
+          <span :key="info.p3_port_color_s4">
+              <img class="portIcon reverse" :src="player3PortImgS4" onerror='this.style.display = "none"'/>
+          </span>
+      </transition>
+    </div>
+
+    <div class='rightFlag3 flag-mask-right' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="player3ImageS4">
+            <img class="flag" :src="player3ImageS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+    <!-- RIGHT PLAYER 4 -->
+    <div class="playercol rightPlayer4 " style="z-index: 5">
+      <div class="skewed">
+        <transition name="fade" mode="out-in">
+          <span class="name" :key="player4NameplateS4" v-html="player4NameplateS4" ></span>
+        </transition>
+      </div>
+    </div>
+
+    <div class="rightCharacter4" style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span class="rightCharacter char" :key="info.p4_char_s4">
+          <img class="characterIcon reverse" :src="player4CharacterS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+    
+    <div class="rightPort4">
+      <transition name="fade" mode="out-in">
+          <span :key="info.p4_port_color_s4">
+              <img class="portIcon reverse" :src="player4PortImgS4" onerror='this.style.display = "none"'/>
+          </span>
+      </transition>
+    </div>
+
+    <div class='rightFlag4 flag-mask-right' style="z-index: 4">
+      <transition name="fade" mode="out-in">
+        <span :key="player4ImageS4">
+            <img class="flag" :src="player4ImageS4" onerror='this.style.display = "none"'/>
+        </span>
+      </transition>
+    </div>
+
+  </div>
+</body>
+
+<!-- This needs to be loaded after the dom -->
+<script src="../resources/js/vue-main.minimal.js"></script>
+
+</html>
