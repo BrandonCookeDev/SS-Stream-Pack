@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/masks.css" />
+  <!--<link rel="stylesheet" type="text/css" href="../resources/styles/melee.Doubles.css" />-->
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+
+  <style>
+    img.character{
+      height: 50px;
+    }
+
+    img.port{
+      height: 50px;
+    }
+
+    img.flag{
+      height: 55px;
+    }
+
+    div.roundcol{
+        position: fixed;
+        display: felx;
+        justify-content: center;
+
+        margin-top:23px;
+        margin-left: 640px;
+
+        width: 20%;
+        color:  #f5cb0d;
+        letter-spacing: -2pt;
+        font-weight: bold;
+        font-size:18pt;
+        text-shadow: 1ch;
+    }
+
+    div.leftPlayer1{
+        position: fixed;
+        text-align: left;
+
+        margin-left: 1525px;
+        margin-top: 475px;
+        font-size: 22pt;
+        z-index: 4;
+    }
+
+    div.leftPlayer2{
+        position: fixed;
+        text-align: left;
+
+        margin-left: 1525px;
+        margin-top: 540px;
+        font-size: 22pt;
+        z-index: 4;
+    }
+
+    div.leftScore{
+        position: fixed;
+        margin-left: 1852px;
+        margin-top:463px;
+	}
+	
+    div.rightScore{
+        position: fixed;
+        
+        margin-left: 1852px;
+        margin-top:527px;
+    }
+
+
+    div.score{
+        font-size: 40pt;
+        font-weight: 100;
+    }
+
+    /* CHARACTERS */
+    div.leftCharacter1{
+        position: fixed;
+        z-index: 2;
+        margin-left: 1690px;
+        margin-top: 470px;
+    }
+    div.leftCharacter2{
+        position: fixed;
+        z-index: 2;
+        margin-left: 1725px;
+        margin-top: 534px;
+    }
+
+    /* PORTS */
+    div.leftPort1{
+        position: fixed;
+        z-index: -2;
+        margin-left: 1715px;
+        margin-top: 470px;
+    }
+    div.leftPort2{
+        position: fixed;
+        z-index: -2;
+        margin-left: 1715px;
+        margin-top: 534px;
+    }
+
+    /* IMAGES */
+    div.leftImage1{
+      position:fixed;
+        margin-left: 1435px;
+        margin-top: 465px;
+    }
+    div.leftImage2{
+      position:fixed;
+        margin-left: 1434px;
+        margin-top: 528px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- LEFT PLAYER 1 -->
+    <div class="leftPlayer1">
+      <div class="skewed-rev">
+        <transition name="fade" mode="out-in">
+          <span class="name " :key="player1Nameplate" v-html="player1Nameplate"></span>
+        </transition>
+      </div>
+    </div>
+
+    <div class="leftCharacter1">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="info.p1_char">
+          <img class="character" :src="player1Character"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <div class="leftPort1">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="info.p1_port_color">
+          <img class="port" :src="player1PortImg"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <div class="leftImage1 flag-mask-left">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="player1Image">
+          <img class="flag" :src="player1Image"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <!-- LEFT PLAYER 2 -->
+    <div class="leftPlayer2">
+      <div class="skewed">
+          <transition name="fade" mode="out-in">
+          <span class="name " :key="player2Nameplate" v-html="player2Nameplate"></span>
+          </transition>
+      </div>
+    </div>
+
+    <div class="leftCharacter2">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="info.p2_char">
+          <img class="character" :src="player2Character"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+    
+    <div class="leftPort2">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="info.p2_port_color">
+          <img class="port reverse-horizontal" :src="player2PortImg "  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <div class="leftImage2 flag-mask-right">
+      <transition name="fade" mode="out-in">
+        <span class="leftCharacter char" :key="player2Image">
+          <img class="flag" :src="player2Image"  onerror='this.style.display = "none"'/>
+        </span> 
+      </transition>
+    </div>
+
+    <!-- LEFT TEAM SCORE -->
+    <div class="leftScore skewed-rev score">
+      <transition name="fade" mode="out-in">
+        <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
+      </transition>
+    </div>
+
+
+    <!-- RIGHT TEAM SCORE -->
+    <div class="rightScore skewed score">
+	<transition name="fade" mode="out-in">
+		<span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+	</transition>
+	</div>
+
+    <!-- MIDDLE -->
+    <div class="roundcol">
+        <div class="round ">
+        <transition name="fade" mode="out-in">
+            <span class="round" :key="info.event_round" v-html="info.event_round"></span>
+        </transition>
+        </div>
+    </div>
+</body>
+
+<!-- This needs to be loaded after the dom -->
+<script src="../resources/js/vue-main.minimal.js"></script>
+
+</html>
