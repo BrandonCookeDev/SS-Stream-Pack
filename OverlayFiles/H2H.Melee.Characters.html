@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="../node_modules/vue2-animate/dist/vue2-animate.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/styles/masks.css" />
+  <!--<link rel="stylesheet" type="text/css" href="../resources/styles/head2head.Melee.Singles.css" />-->
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+
+  <style>
+    div.leftDisplay{
+      position:fixed;
+    }
+    div.rightDisplay{
+      position: fixed;
+    }
+    span.leftDisplayCharacter{
+      margin-left:-645px;
+    }
+    span.rightDisplayCharacter{
+      margin-left: 645px;
+    }
+	</style>
+</head>
+<body>
+	<div id="app">
+	
+	<!-- LEFT -->
+    <div class="leftDisplay h2h-mask-left" style="z-index:3">
+		<transition name="fade" mode="out-in">
+			<span class="leftDisplayCharacter" :key="info.p1_char">
+			<video :src="player1CharacterWebm" autoplay loop 
+				type="video/webm" autoplay loop class="character left"></video>
+			</span>
+		</transition>
+	</div>
+
+	<!-- RIGHT-->
+    <div class="rightDisplay" style="z-index:3">
+		<div class="h2h-mask-right">
+			<transition name="fade" mode="out-in">
+				<span class="rightDisplayCharacter" :key="info.p2_char">
+					<video :src="player2CharacterWebm"  autoplay loop 
+					type="video/webm" class="character right reverse"></video>
+				</span>
+			</transition>
+		</div>
+	</div>
+</body>
+
+<!-- This needs to be loaded after the dom -->
+<script src="../resources/js/vue-main.minimal.js"></script>
+
+</html>

@@ -15,7 +15,7 @@ const FLAG_DIR        = join(IMAGES_DIR, 'Flags/64flat');
 const EYES_DIR        = join(IMAGES_DIR, 'PlayerEyes');
 
 //Videos
-const WEBM_DIR        = join(VIDEOS_DIR, 'webm');
+const WEBM_DIR        = join('../..', 'webm');
 const MELEE_WEBM      = join(WEBM_DIR, 'Melee');
 const SMASH4_WEBM     = join(WEBM_DIR, 'Smash4');
 const MELEE_CHAR_DIR  = join(CHARACTER_DIR, 'Melee');
@@ -231,10 +231,18 @@ var app = new Vue({
     player2Image: function(){ return getImage(this.info, 2) },
     player3Image: function(){ return getImage(this.info, 3) },
     player4Image: function(){ return getImage(this.info, 4) },
-    player1ImageS4: function(){ return getImageS4(this.info, 1)},
+    player1ImageS4: function(){ return getImageS4(this.info, 1) },
     player2ImageS4: function(){ return getImageS4(this.info, 2) },
     player3ImageS4: function(){ return getImageS4(this.info, 3) },
     player4ImageS4: function(){ return getImageS4(this.info, 4) },
+    player1CharacterWebm:function(){ return getMeleeMUCharacter(this.info.p1_char) },
+    player2CharacterWebm:function(){ return getMeleeMUCharacter(this.info.p2_char) },
+    player3CharacterWebm:function(){ return getMeleeMUCharacter(this.info.p3_char) },
+    player4CharacterWebm:function(){ return getMeleeMUCharacter(this.info.p4_char) },
+    player1CharacterWebmS4:function(){ return getS4MUCharacter(this.info.p1_char_s4) },
+    player2CharacterWebmS4:function(){ return getS4MUCharacter(this.info.p2_char_s4) },
+    player3CharacterWebmS4:function(){ return getS4MUCharacter(this.info.p3_char_s4) },
+    player4CharacterWebmS4:function(){ return getS4MUCharacter(this.info.p4_char_s4) },    
     player1Character: function(){
       return getMeleeChar(this.info.p1_char);
     },
