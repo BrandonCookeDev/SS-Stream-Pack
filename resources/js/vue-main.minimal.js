@@ -119,7 +119,7 @@ function getNameplateS4(info, playerNumber){
 
   let tag = info[`p${playerNumber}_name_s4`];
   let twitter = info[`p${playerNumber}_twitter_s4`];
-  let sponsor = info[`p${playerNumber}_sponsor_s4`];
+  let sponsor = info[`p${playerNumber}_sponsor_image_s4`];
 
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
@@ -137,7 +137,7 @@ function getImage(info, playerNumber){
     throw new Error('getImage error: Info object is undefined');
 
   let country = info[`p${playerNumber}_country`];
-  let sponsor = info[`p${playerNumber}_sponsor`];
+  let sponsor = info[`p${playerNumber}_sponsor_image`];
 
   switch(IMAGE_STATE){
   case 'SPONSOR':
