@@ -21,8 +21,6 @@ logs
 *.log
 npm-debug.log*
 
-RoundResolver/SmashRoundResolver/node_modules
-
 ./*.xml
 ./OverlayFiles/*.xml
 
