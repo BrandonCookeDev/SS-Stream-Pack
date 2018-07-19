@@ -15,7 +15,7 @@ const FLAG_DIR        = join(IMAGES_DIR, 'Flags/64flat');
 const EYES_DIR        = join(IMAGES_DIR, 'PlayerEyes');
 
 //Videos
-const WEBM_DIR        = join('../..', 'webm');
+const WEBM_DIR        = join('..', 'webm');
 const MELEE_WEBM      = join(WEBM_DIR, 'Melee');
 const SMASH4_WEBM     = join(WEBM_DIR, 'Smash4');
 const MELEE_CHAR_DIR  = join(CHARACTER_DIR, 'Melee');
@@ -103,6 +103,7 @@ function getNameplate(info, playerNumber){
 
   let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? 
       info[`p${playerNumber}_sponsor_image_text`] : info[`p${playerNumber}_sponsor_image`];
+  if(sponsor) sponsor = sponsor.toUpperCase();
 
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
@@ -124,6 +125,7 @@ function getNameplateS4(info, playerNumber){
   
   let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? 
       info[`p${playerNumber}_sponsor_image_text_s4`] : info[`p${playerNumber}_sponsor_image_s4`];
+  if(sponsor) sponsor = sponsor.toUpperCase();
 
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
@@ -142,8 +144,7 @@ function getImage(info, playerNumber){
 
   let country = info[`p${playerNumber}_country`];
   let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? 
-      info[`p${playerNumber}_sponsor_image_text`] : info[`p${playerNumber}_sponsor_image`];
-  if(!sponsor) sponsor = 'default';
+      (info[`p${playerNumber}_sponsor_image_text`] || 'default') : info[`p${playerNumber}_sponsor_image`];
 
 
   switch(IMAGE_STATE){
@@ -163,8 +164,7 @@ function getImageS4(info, playerNumber){
 
   let country = info[`p${playerNumber}_country_s4`];
   let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? 
-      info[`p${playerNumber}_sponsor_image_text_s4`] : info[`p${playerNumber}_sponsor_image_s4`];
-  if(!sponsor) sponsor = 'default';
+      (info[`p${playerNumber}_sponsor_image_text_s4`] || 'default') : info[`p${playerNumber}_sponsor_image_s4`];
 
   switch(IMAGE_STATE){
   case 'SPONSOR':

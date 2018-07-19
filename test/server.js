@@ -10,7 +10,6 @@ let port = 8080;
 let webmDir = path.resolve(path.join(__dirname, '..', '..', 'webm'));
 console.log(webmDir);
 app.use(express.static(path.join(__dirname, '..')));
-app.use('/webm', express.static(webmDir));
 
 require('./makeIndex')(port);
 
