@@ -26,6 +26,7 @@
         position: fixed;
         display: flex;
         justify-content: center;
+        text-align: center;
 
         margin-top:24px;
         margin-left: 769px;
@@ -77,7 +78,7 @@
 
     div.rightPlayer{
         position: fixed;
-        margin-left: 1520px;
+        margin-left: 1500px;
         margin-top: 960px;
         text-align: right;
         z-index: -2;
@@ -208,7 +209,7 @@
     <div class="playercol rightPlayer " style="z-index: 5">
       <div class="skewed">
         <transition name="fade" mode="out-in">
-          <span class="name" :key="info.p2_name" v-html="player2Nameplate" ></span>
+          <span class="name" :key="player2Nameplate" v-html="player2Nameplate" ></span>
         </transition>
       </div>
     </div>

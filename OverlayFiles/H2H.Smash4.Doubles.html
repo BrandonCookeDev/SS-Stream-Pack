@@ -22,6 +22,7 @@
         position: fixed;
         display: flex;
         justify-content: center;
+        text-align: center;
 
         margin-top:24px;
         margin-left: 772px;
@@ -257,7 +258,7 @@
     <!-- LEFT SCORE -->
     <div class="leftScore skewed-rev score">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p1_games_s4" v-html="info.p2_games"></span>
+        <span class="score" :key="info.p1_games_s4" v-html="info.p2_games_s4"></span>
       </transition>
     </div>
 
@@ -272,7 +273,7 @@
     <!-- RIGHT SCORE -->
     <div class="rightScore score skewed">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p2_games_s4" v-html="info.p2_games"></span>
+        <span class="score" :key="info.p2_games_s4" v-html="info.p2_games_s4"></span>
       </transition>
     </div>
 

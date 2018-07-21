@@ -22,6 +22,7 @@
         position: fixed;
         display: flex;
         justify-content: center;
+        text-align: center;
 
         margin-top:24px;
         margin-left: 772px;
@@ -121,7 +122,7 @@
     }
     div.leftCharacter2{
         position: fixed;
-        margin-left:425px;
+        margin-left:410px;
         margin-top: 989px;
         z-index: 0;
     }
@@ -192,7 +193,7 @@
     <div class="leftPlayer1" style="z-index: 5">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
-          <span class="name " :key="info.p1_name" v-html="player1Nameplate"></span>
+          <span class="name " :key="player1Nameplate" v-html="player1Nameplate"></span>
         </transition>
       </div>
     </div>
@@ -225,7 +226,7 @@
     <div class="leftPlayer2" style="z-index: 5">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
-          <span class="name " :key="info.p2_name" v-html="player2Nameplate"></span>
+          <span class="name " :key="player2Nameplate" v-html="player2Nameplate"></span>
         </transition>
       </div>
     </div>
@@ -257,7 +258,7 @@
     <!-- LEFT SCORE -->
     <div class="leftScore skewed-rev score">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+        <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
       </transition>
     </div>
 
@@ -281,7 +282,7 @@
     <div class="playercol rightPlayer3 " style="z-index: 5">
       <div class="skewed">
         <transition name="fade" mode="out-in">
-          <span class="name" :key="info.p3_name" v-html="player3Nameplate" ></span>
+          <span class="name" :key="player3Nameplate" v-html="player3Nameplate" ></span>
         </transition>
       </div>
     </div>
@@ -314,7 +315,7 @@
     <div class="playercol rightPlayer4 " style="z-index: 5">
       <div class="skewed">
         <transition name="fade" mode="out-in">
-          <span class="name" :key="info.p4_name" v-html="player4Nameplate" ></span>
+          <span class="name" :key="player4Nameplate" v-html="player4Nameplate" ></span>
         </transition>
       </div>
     </div>
