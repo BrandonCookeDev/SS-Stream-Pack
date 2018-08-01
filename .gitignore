@@ -26,5 +26,6 @@ npm-debug.log*
 
 test/index.html
 
+.vscode/
 
 webm/
