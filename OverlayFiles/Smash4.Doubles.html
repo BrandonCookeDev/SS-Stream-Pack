@@ -185,8 +185,6 @@
       margin-top: 73px;
       margin-left: 1408px;
     }
-
-
   </style>
 </head>
 
@@ -212,7 +210,7 @@
 
     <div class="leftPort1">
       <transition name="fade" mode="out-in">
-          <span class="leftCharacter char" :key="info.p1_port_color">
+          <span class="leftCharacter char" :key="player1PortImgS4">
             <img class='portIcon' :src="player1PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
@@ -245,7 +243,7 @@
 
     <div class="leftPort2">
       <transition name="fade" mode="out-in">
-          <span class="leftCharacter char" :key="info.p2_port_color">
+          <span class="leftCharacter char" :key="player2PortImgS4">
             <img class='portIcon' :src="player2PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
@@ -262,7 +260,7 @@
     <!-- LEFT SCORE -->
     <div class="leftScore skewed-rev score">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p1_games_s4" v-html="info.p1_games_s4"></span>
+        <span class="score" :key="info.team1_games_s4" v-html="info.team1_games_s4"></span>
       </transition>
     </div>
 
@@ -284,7 +282,7 @@
     <!-- RIGHT SCORE -->
     <div class="rightScore score skewed">
         <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p2_games_s4" v-html="info.p2_games_s4"></span>
+          <span class="score" :key="info.team2_games_s4" v-html="info.team2_games_s4"></span>
         </transition>
       </div>
 
@@ -307,7 +305,7 @@
 
     <div class="rightPort3">
       <transition name="fade" mode="out-in">
-          <span class="leftCharacter char" :key="info.p3_port_color">
+          <span class="leftCharacter char" :key="player3PortImgS4">
             <img class='portIcon reverse' :src="player3PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>
@@ -325,7 +323,7 @@
     <div class="rightPlayer4">
       <div class="skewed">
           <transition name="fade" mode="out-in">
-          <span class="name" :key="player4NameplateS4" v-html="info.p4_name_s4" ></span>
+          <span class="name" :key="player4NameplateS4" v-html="player4NameplateS4" ></span>
           </transition>
       </div>
     </div>
@@ -340,7 +338,7 @@
 
     <div class="rightPort4">
       <transition name="fade" mode="out-in">
-          <span class="leftCharacter char" :key="info.p4_port_color">
+          <span class="leftCharacter char" :key="player4PortImgS4">
             <img class='portIcon reverse' :src="player4PortImgS4" onerror='this.style.display = "none"' / >
           </span>
       </transition>

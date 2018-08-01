@@ -183,24 +183,22 @@
     </div>
 
 
-
     <!-- middle -->
-      <div class="roundcol">
-        <transition name="fade" mode="out-in">
-          <span class="round" :key="info.event_round" v-html="info.event_round"></span>
-        </transition>
-      </div>
-
+    <div class="roundcol">
+      <transition name="fade" mode="out-in">
+        <span class="round" :key="info.event_round" v-html="info.event_round"></span>
+      </transition>
+    </div>
 
 
     <!-- RIGHT -->
     <div class="playercol rightPlayer">
-        <div class="skewed">
-          <transition name="fade" mode="out-in">
-            <span class="name" :key="player2Nameplate" v-html="player2Nameplate" ></span>
-          </transition>
-        </div>
+      <div class="skewed">
+        <transition name="fade" mode="out-in">
+          <span class="name" :key="player2Nameplate" v-html="player2Nameplate" ></span>
+        </transition>
       </div>
+    </div>
   
 
     <!-- RIGHT CHARACTER -->

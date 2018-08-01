@@ -249,7 +249,7 @@
     <!-- LEFT TEAM SCORE -->
     <div class="leftScore skewed-rev score">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
+        <span class="score" :key="info.team1_games" v-html="info.team1_games"></span>
       </transition>
     </div>
 
@@ -265,7 +265,7 @@
     <!-- RIGHT TEAM SCORE -->
     <div class="rightScore skewed score">
         <transition name="fade" mode="out-in">
-          <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+          <span class="score" :key="info.team2_games" v-html="info.team2_games"></span>
         </transition>
       </div>
 

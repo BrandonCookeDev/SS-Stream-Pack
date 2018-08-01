@@ -200,7 +200,7 @@
     
     <div class='leftPort1'>
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_port_color">
+        <span :key="player1PortImg">
             <img class="portIcon" :src="player1PortImg" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -233,7 +233,7 @@
     
     <div class='leftPort2'>
       <transition name="fade" mode="out-in">
-        <span :key="info.p2_port_color">
+        <span :key="player2PortImg">
             <img class="portIcon" :src="player2PortImg" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -258,7 +258,7 @@
     <!-- LEFT SCORE -->
     <div class="leftScore skewed-rev score">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p1_games" v-html="info.p1_games"></span>
+        <span class="score" :key="info.team1_games" v-html="info.team1_games"></span>
       </transition>
     </div>
 
@@ -273,7 +273,7 @@
     <!-- RIGHT SCORE -->
     <div class="rightScore score skewed">
       <transition name="fade" mode="out-in">
-        <span class="score" :key="info.p2_games" v-html="info.p2_games"></span>
+        <span class="score" :key="info.team2_games" v-html="info.team2_games"></span>
       </transition>
     </div>
 
@@ -297,7 +297,7 @@
     
     <div class="rightPort3">
       <transition name="fade" mode="out-in">
-          <span :key="info.p3_port_color">
+          <span :key="player3PortImg">
               <img class="portIcon reverse" :src="player3PortImg" onerror='this.style.display = "none"'/>
           </span>
       </transition>
@@ -330,7 +330,7 @@
     
     <div class="rightPort4">
       <transition name="fade" mode="out-in">
-          <span :key="info.p4_port_color">
+          <span :key="player4PortImg">
               <img class="portIcon reverse" :src="player4PortImg" onerror='this.style.display = "none"'/>
           </span>
       </transition>

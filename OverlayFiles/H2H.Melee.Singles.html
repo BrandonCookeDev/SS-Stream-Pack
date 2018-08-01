@@ -153,14 +153,14 @@
     <div class="leftPlayer" style="z-index: 5">
       <div class=" skewed-rev">
         <transition name="fade" mode="out-in">
-          <span class="name " :key="info.p1_name" v-html="player1Nameplate"></span>
+          <span class="name " :key="player1Nameplate" v-html="player1Nameplate"></span>
         </transition>
       </div>
     </div>
     
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_port_color">
+        <span :key="player1PortImg">
             <img class="portIcon" :src="player1PortImg" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -224,7 +224,7 @@
     
     <div class="rightPort">
       <transition name="fade" mode="out-in">
-          <span :key="info.p2_port_color">
+          <span :key="player2PortImg">
               <img class="portIcon reverse" :src="player2PortImg" onerror='this.style.display = "none"'/>
           </span>
       </transition>
