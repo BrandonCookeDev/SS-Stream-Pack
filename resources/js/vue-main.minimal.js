@@ -100,10 +100,11 @@ function getNameplate(info, playerNumber){
   let tag = info[`p${playerNumber}_name`];
   let twitter = info[`p${playerNumber}_twitter`];
   let twitterTag = `<img src=${getTwitterLogo()} height="20px" width="25px" />`;
-
-  let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? 
-      info[`p${playerNumber}_sponsor_image_text`] : info[`p${playerNumber}_sponsor_image`];
+  let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? "" : info[`p${playerNumber}_sponsor_image`];
   if(sponsor) sponsor = sponsor.toUpperCase();
+
+  //let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? 
+  //    info[`p${playerNumber}_sponsor_image_text`] : info[`p${playerNumber}_sponsor_image`];
 
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
@@ -122,10 +123,11 @@ function getNameplateS4(info, playerNumber){
   let tag     = info[`p${playerNumber}_name_s4`];
   let twitter = info[`p${playerNumber}_twitter_s4`];
   let twitterTag = `<img src=${getTwitterLogo()} height="20px" width="25px" />`;
-  
-  let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? 
-      info[`p${playerNumber}_sponsor_image_text_s4`] : info[`p${playerNumber}_sponsor_image_s4`];
+  let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? "" : info[`p${playerNumber}_sponsor_image_s4`];
   if(sponsor) sponsor = sponsor.toUpperCase();
+  
+  //let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? 
+  //    info[`p${playerNumber}_sponsor_image_text_s4`] : info[`p${playerNumber}_sponsor_image_s4`];
 
   switch(NAMEPLATE_STATE){
   case 'TWITTER': 
@@ -143,9 +145,10 @@ function getImage(info, playerNumber){
     throw new Error('getImage error: Info object is undefined');
 
   let country = info[`p${playerNumber}_country`];
-  let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? 
-      (info[`p${playerNumber}_sponsor_image_text`] || 'default') : info[`p${playerNumber}_sponsor_image`];
-
+  let sponsor = info[`p${playerNumber}_sponsor_image`];
+  
+  //let sponsor = info[`p${playerNumber}_sponsor_image`] === 'None' ? 
+  //    (info[`p${playerNumber}_sponsor_image_text`] || 'default') : info[`p${playerNumber}_sponsor_image`];
 
   switch(IMAGE_STATE){
   case 'SPONSOR':
@@ -163,8 +166,10 @@ function getImageS4(info, playerNumber){
     throw new Error('getImageS4 error: Info object is undefined');
 
   let country = info[`p${playerNumber}_country_s4`];
-  let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? 
-      (info[`p${playerNumber}_sponsor_image_text_s4`] || 'default') : info[`p${playerNumber}_sponsor_image_s4`];
+  let sponsor = info[`p${playerNumber}_sponsor_image_s4`];
+
+  //let sponsor = info[`p${playerNumber}_sponsor_image_s4`] === 'None' ? 
+  //    (info[`p${playerNumber}_sponsor_image_text_s4`] || 'default') : info[`p${playerNumber}_sponsor_image_s4`];
 
   switch(IMAGE_STATE){
   case 'SPONSOR':
