@@ -168,7 +168,7 @@
 
     <div class='leftCharacter' style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_char">
+        <span :key="player1Character">
             <img class="characterIcon" :src="player1Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -216,7 +216,7 @@
 
     <div class="rightCharacter" style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span class="rightCharacter char" :key="info.p2_char">
+        <span class="rightCharacter char" :key="player2Character">
           <img class="characterIcon reverse" :src="player2Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>

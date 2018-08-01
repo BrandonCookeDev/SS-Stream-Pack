@@ -160,7 +160,7 @@
     
     <div class='leftPort'>
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_port_color_s4">
+        <span :key="player1PortImgS4">
             <img class="portIcon" :src="player1PortImgS4" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -168,7 +168,7 @@
 
     <div class='leftCharacter' style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_char_s4">
+        <span :key="player1CharacterS4">
             <img class="characterIcon" :src="player1CharacterS4" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -216,7 +216,7 @@
 
     <div class="rightCharacter" style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span class="rightCharacter char" :key="info.p2_char_s4">
+        <span class="rightCharacter char" :key="player2CharacterS4">
           <img class="characterIcon reverse" :src="player2CharacterS4" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -224,7 +224,7 @@
     
     <div class="rightPort">
       <transition name="fade" mode="out-in">
-          <span :key="info.p2_port_color_s4">
+          <span :key="player2PortImgS4">
               <img class="portIcon reverse" :src="player2PortImgS4" onerror='this.style.display = "none"'/>
           </span>
       </transition>

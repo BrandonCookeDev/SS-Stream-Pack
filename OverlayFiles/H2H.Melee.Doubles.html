@@ -208,7 +208,7 @@
 
     <div class='leftCharacter1' style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span :key="info.p1_char">
+        <span :key="player1Character">
             <img class="characterIcon" :src="player1Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -241,7 +241,7 @@
 
     <div class='leftCharacter2' style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span :key="info.p2_char">
+        <span :key="player2Character">
             <img class="characterIcon" :src="player2Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -289,7 +289,7 @@
 
     <div class="rightCharacter3" style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span class="rightCharacter3 char" :key="info.p3_char">
+        <span class="rightCharacter3 char" :key="player3Character">
           <img class="characterIcon reverse" :src="player3Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>
@@ -322,7 +322,7 @@
 
     <div class="rightCharacter4" style="z-index: 4">
       <transition name="fade" mode="out-in">
-        <span class="rightCharacter char" :key="info.p4_char">
+        <span class="rightCharacter char" :key="player4Character">
           <img class="characterIcon reverse" :src="player4Character" onerror='this.style.display = "none"'/>
         </span>
       </transition>

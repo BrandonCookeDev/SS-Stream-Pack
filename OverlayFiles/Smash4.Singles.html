@@ -159,7 +159,7 @@
 
     <div class="leftCharacter">
       <transition name="fade" mode="out-in">
-        <span class="leftCharacter char" :key="info.p1_char_s4">
+        <span class="leftCharacter char" :key="player1CharacterS4">
           <img class="character" :src="player1CharacterS4" onerror='this.style.display = "none"'/>
         </span> 
       </transition>
@@ -228,7 +228,7 @@
 
     <div class="rightCharacter">
       <transition name="fade" mode="out-in">
-        <span class="char" :key="info.p2_char_s4">
+        <span class="char" :key="player2CharacterS4">
           <img class="character reverse" :src="player2CharacterS4" onerror='this.style.display = "none"'/>
         </span>
       </transition>
